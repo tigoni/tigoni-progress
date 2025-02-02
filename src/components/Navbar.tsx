@@ -45,12 +45,13 @@ export const Navbar = () => {
           <div className="hidden lg:flex items-center justify-center gap-x-8">
             {navbarLinks.map(({ href, label, ariaLabel }) => (
               <a
-                className="lg:text-base text-2xl  cursor-pointer font-normal lg:font-medium hover:scale-110 transition h-full"
+                className="relative group lg:text-base text-2xl flex flex-col cursor-pointer font-normal lg:font-medium"
                 href={href}
                 aria-label={ariaLabel}
                 key={label}
               >
                 {label}
+                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-primary group-hover:w-full transition-all duration-150 rounded-full" />
               </a>
             ))}
           </div>
@@ -100,12 +101,13 @@ export const Navbar = () => {
               {navbarLinks.map(({ label, href, ariaLabel }) => (
                 <a
                   key={href}
-                  className="lg:text-base text-xl cursor-pointer font-normal lg:font-medium hover:scale-110 transition duration-300 h-full"
+                  className="relative group text-xl flex flex-col cursor-pointer font-normal lg:font-medium"
                   href={href}
                   onClick={() => setIsOpen(false)}
                   aria-label={ariaLabel}
                 >
                   {label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-primary group-hover:w-full transition-all duration-150 rounded-full" />
                 </a>
               ))}
               <a
