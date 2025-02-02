@@ -32,7 +32,7 @@ export const Navbar = () => {
               <div className="mr-2 text-6xl">
                 <TailcastLogo />
               </div>
-              <div className="font-['Inter'] font-bold text-xl">Tailcast</div>
+              <div className="font-['Nunito'] font-bold text-xl">Tailcast</div>
             </div>
           </a>
         </motion.div>

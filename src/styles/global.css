@@ -86,7 +86,7 @@
 
 /* Preventing FOUC */
 @font-face {
-  font-display: var(--fontsource-Inter-font-display, optional);
+  font-display: var(--fontsource-Nunito-font-display, optional);
 }
 
 /* Hero */
