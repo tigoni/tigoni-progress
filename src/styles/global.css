@@ -25,14 +25,14 @@
 }
 
 .dark {
-  --primary: 238, 81%, 67%;
-  --secondary: 237, 79%, 80%;
+  --primary: 244, 81%, 68%;
+  --secondary: 244, 79%, 70%;
   --text-primary: 0, 0%, 100%;
-  --text-secondary: 210, 7%, 70%;
-  --background-1: 220, 6%, 13%;
-  --background-2: 220, 6%, 16%;
-  --background-3: 226, 6%, 20%;
-  --hover: 228, 6%, 23%;
+  --text-secondary: 210, 7%, 60%;
+  --background-1: 220, 10%, 10%;
+  --background-2: 220, 10%, 12%;
+  --background-3: 226, 10%, 16%;
+  --hover: 228, 10%, 18%;
   --border: 0, 0%, 100%, 0.1;
 }
 
@@ -141,4 +141,3 @@
   height: 127px;
   transform: rotateY(180deg);
 }
-
