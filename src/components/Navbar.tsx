@@ -17,7 +17,7 @@ export const Navbar = () => {
 
   return (
     <nav
-      className="w-full h-20 flex flex-col justify-center items-center fixed bg-background-1 lg:bg-black/10 z-40 lg:dark:bg-white/10 lg:backdrop-blur-xl"
+      className="w-7xl mx-auto left-1/2 rounded-xl px-4 -translate-x-[50%] h-20 flex flex-col justify-center items-center fixed bg-background-1 top-4 lg:bg-background-3 z-40 lg:backdrop-blur-xl"
       aria-label="Main navigation"
     >
       <div className="w-full max-w-7xl px-4 lg:p-0 text-text-primary dark:text-text-primary flex justify-between items-center relative">
@@ -45,7 +45,7 @@ export const Navbar = () => {
           <div className="hidden lg:flex items-center justify-center gap-x-8">
             {navbarLinks.map(({ href, label, ariaLabel }) => (
               <a
-                className="relative group lg:text-base text-2xl flex flex-col cursor-pointer font-normal lg:font-medium"
+                className="relative group lg:text-base text-2xl flex flex-col cursor-pointer font-normal lg:font-medium transition"
                 href={href}
                 aria-label={ariaLabel}
                 key={label}
@@ -62,18 +62,15 @@ export const Navbar = () => {
           transition={{ duration: 0.3 }}
           exit={{ opacity: 0 }}
         >
-          <div className="grow basis-0 justify-end hidden lg:flex">
-            <a
-              className="main-border-gray rounded-xl
-           bg-background-2 hover:bg-background-3  border-gray-700 pl-6 pr-8 pt-2 pb-2 text-sm flex"
-              href="https://github.com/matt765/Tidestream"
-              target="_blank"
-              aria-label="source code"
-            >
-              <GithubIcon />
-              <span className="pt-px">Source code</span>
-            </a>
-          </div>
+          <a
+            className="main-border-gray rounded-xl
+           bg-background-2 hover:bg-background-3  border-gray-700 justify-center items-end p-2 text-sm flex"
+            href="https://github.com/matt765/Tidestream"
+            target="_blank"
+            aria-label="source code"
+          >
+            <GithubIcon />
+          </a>
         </motion.div>
         <div
           className="lg:hidden flex flex-col  px-2 py-3 border-solid border border-gray-600 rounded-md cursor-pointer hover:bg-background-2"
