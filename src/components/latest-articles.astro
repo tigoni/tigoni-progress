@@ -1,0 +1,36 @@
+---
+import { articles } from "@/lib/constants";
+import { ArticleItem } from "./article-item";
+import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "./button";
+---
+
+<section class="w-full flex flex-col gap-8 justify-start items-start">
+    <div>
+        <h2 class="text-2xl font-medium">Latest articles</h2>
+        <p class="text-foreground">
+            I write about frontend, backend, fullstack, and latest tech trends
+        </p>
+    </div>
+
+    <div class="flex w-full flex-col justify-start items-start gap-6">
+        {
+            articles
+                .slice(0, 2)
+                .map((article) => <ArticleItem article={article} />)
+        }
+    </div>
+
+    <a
+        href="/articles"
+        class={cn(
+            "mx-auto cursor-pointer",
+            buttonVariants({ variant: "outline", size: "sm" }),
+        )}
+    >
+        See all articles
+
+        <ArrowRight className="size-3" />
+    </a>
+</section>
