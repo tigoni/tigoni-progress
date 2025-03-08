@@ -120,3 +120,24 @@ export const articles = [
         readTime: "5 mins read",
     }
 ];
+
+
+export const navLinks = [
+    {
+        label: "Home",
+        href: "/",
+    },
+    {
+        label: "Acticles",
+        href: "/articles",
+    },
+    {
+        label: "Resume",
+        href: "/resume",
+    },
+
+    {
+        label: "Projects",
+        href: "/projects",
+    },
+];

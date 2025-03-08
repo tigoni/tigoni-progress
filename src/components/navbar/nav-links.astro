@@ -1,0 +1,33 @@
+---
+import { navLinks } from "@/lib/constants";
+import { cn } from "@/lib/utils";
+
+const pathname = Astro.url.pathname;
+---
+
+<div class="justify-center items-center gap-6 hidden lg:flex">
+    {
+        navLinks.map((link) => (
+            <a
+                href={link.href}
+                class={cn(
+                    "group relative flex font-medium flex-col items-center justify-center text-sm text-foreground/70 hover:text-primary duration-150",
+                )}
+            >
+                <span
+                    class={cn("mb", pathname === link.href && "text-primary")}
+                >
+                    {link.label}
+                </span>
+
+                <span
+                    class={cn(
+                        "h-[1px] absolute -bottom-1 bg-primary rounded-full transition-all duration-150",
+                        pathname === link.href ? "w-full" : "w-0",
+                        "group-hover:w-full",
+                    )}
+                />
+            </a>
+        ))
+    }
+</div>
