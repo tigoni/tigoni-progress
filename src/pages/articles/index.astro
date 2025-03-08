@@ -1,7 +1,21 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+
+import { articles } from "@/lib/constants";
+import { ArticleCategories } from "@/components/article-categories";
 ---
 
 <Layout title="Louai Boumediene">
-    <h1>Articles page</h1>
+    <section class="w-full flex flex-col justify-start items-start">
+        <header class="py-[5vh] space-y-2">
+            <h2 class="text-2xl font-medium">My articles space</h2>
+            <p class="max-w-3xl">
+                I talk about frontend, backend, fullstack, productivity and just
+                what ever i encouter and learn in my journey as a software
+                engineer
+            </p>
+        </header>
+
+        <ArticleCategories client:load articles={articles} />
+    </section>
 </Layout>
