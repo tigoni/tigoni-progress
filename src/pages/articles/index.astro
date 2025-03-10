@@ -1,27 +1,27 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Layout from "@/layouts/layout.astro";
 
 import { articles } from "@/lib/constants";
 import { ArticleCategories } from "@/components/article";
 import { FeaturedArticle } from "@/components/article-item";
 
-const featured = articles.find((article) => article.featured)!;
-const remaining = articles.filter((article) => !article.featured);
+const featured = articles.find(article => article.featured)!;
+const remaining = articles.filter(article => !article.featured);
 ---
 
 <Layout title="Louai Boumediene">
-    <header class="py-[2vh] space-y-2">
-        <h2 class="text-2xl font-medium">My articles space</h2>
-        <p class="max-w-3xl">
-            I talk about frontend, backend, fullstack, productivity and just
-            what ever i encouter and learn in my journey as a software engineer
-        </p>
-    </header>
+  <header class="space-y-2 py-[2vh]">
+    <h2 class="text-2xl font-medium">My articles space</h2>
+    <p class="max-w-3xl">
+      I talk about frontend, backend, fullstack, productivity and just what ever
+      i encouter and learn in my journey as a software engineer
+    </p>
+  </header>
 
-    <section class="w-full space-y-3">
-        <h3 class="text-lg">Featured article</h3>
-        <FeaturedArticle featruedArticle={featured} />
-    </section>
+  <section class="w-full space-y-3">
+    <h3 class="text-lg">Featured article</h3>
+    <FeaturedArticle featruedArticle={featured} />
+  </section>
 
-    <ArticleCategories client:load articles={remaining} />
+  <ArticleCategories client:load articles={remaining} />
 </Layout>
