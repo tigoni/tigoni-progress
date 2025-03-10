@@ -1,0 +1,60 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { ArrowRight } from "lucide-react";
+
+interface Props {
+  article: CollectionEntry<"blog">;
+}
+
+const { article } = Astro.props;
+
+import { Image } from "astro:assets";
+
+import articleImage from "./article.png";
+---
+
+<a
+  href={`/articles/${article.id}`}
+  class="group flex w-full cursor-pointer items-center justify-start gap-6 rounded-md p-4 duration-75 hover:bg-accent/40"
+>
+  <Image
+    src={articleImage}
+    alt={article.data.description}
+    class="hidden w-[18%] rounded-md lg:block"
+  />
+  <div class="flex flex-col items-start justify-center gap-3">
+    <ul class="flex items-center justify-start gap-x-4">
+      <li
+        class="rounded-sm bg-secondary px-3 py-[2px] text-xs font-bold text-secondary-foreground"
+      >
+        {
+          `${article.data.category.charAt(0).toUpperCase()}${article.data.category.slice(1)}`
+        }
+      </li>
+      {
+        article.data.tags.map(tag => (
+          <li class="text-xs font-medium">#{tag}</li>
+        ))
+      }
+    </ul>
+    <div class="space-y-1">
+      <h3
+        class="text-xl font-semibold underline-offset-4 group-hover:underline"
+      >
+        {article.data.title}
+      </h3>
+      <p class="mr-4 line-clamp-2">{article.data.description}</p>
+    </div>
+    <div class="space-y-2 text-xs font-medium">
+      <p class="text-muted-foreground">
+        {article.data.pubDatetime} • {article.data.readTime}
+      </p>
+      <span class="flex items-center gap-1">
+        Read more
+        <ArrowRight
+          className="size-3 duration-75 group-hover:translate-x-0.5"
+        />
+      </span>
+    </div>
+  </div>
+</a>
