@@ -11,12 +11,12 @@ importers:
       '@astrojs/react':
         specifier: ^4.2.0
         version: 4.2.0(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@fontsource/geist':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@fontsource/jetbrains-mono':
         specifier: ^5.1.2
         version: 5.1.2
-      '@fontsource/nunito':
-        specifier: ^5.1.1
-        version: 5.1.1
       '@radix-ui/react-slot':
         specifier: ^1.1.2
         version: 1.1.2(@types/react@19.0.8)(react@19.0.0)
@@ -324,11 +324,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@fontsource/geist@5.2.5':
+    resolution: {integrity: sha512-QDXk3+LZ7lMZYaqcjY+J0rKSU2HLojcNgryyVT6JOC0Rqx4rxb/YFA39msKlqOR6u992GDZOnsEzULVHB4KmoQ==}
+
   '@fontsource/jetbrains-mono@5.1.2':
     resolution: {integrity: sha512-muYZK6W3NTrKpKTjoF2dkrtMjXLlPZhniLiLjMmfegRibl2L6jUJh9gB6UcbcZs3zHdIYTmzMkXNbNoI2kXX3Q==}
-
-  '@fontsource/nunito@5.1.1':
-    resolution: {integrity: sha512-yv3SHxTwMcDqs8z73oyR3CzZyrfDOaJg6N2jr6CNAGuh0X+KA6KA/dz8jPwuKFeHzrSFcaQrj3CLAh6ySFvkdw==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2224,9 +2224,9 @@ snapshots:
   '@esbuild/win32-x64@0.24.2':
     optional: true
 
-  '@fontsource/jetbrains-mono@5.1.2': {}
+  '@fontsource/geist@5.2.5': {}
 
-  '@fontsource/nunito@5.1.1': {}
+  '@fontsource/jetbrains-mono@5.1.2': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
