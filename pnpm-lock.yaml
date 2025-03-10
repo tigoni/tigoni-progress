@@ -30,7 +30,7 @@ importers:
         specifier: ^4.0.2
         version: 4.0.12(vite@6.2.1(jiti@2.4.2)(lightningcss@1.29.2))
       '@types/react':
-        specifier: ^19.0.8
+        specifier: ^19.0.10
         version: 19.0.10
       '@types/react-dom':
         specifier: ^19.0.3
