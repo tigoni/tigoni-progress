@@ -1,0 +1,40 @@
+---
+import { buttonVariants } from "./button";
+
+export interface Props {
+  id?: string;
+  href: string;
+  ariaLabel?: string;
+  title?: string;
+  disabled?: boolean;
+}
+
+const { id, href, ariaLabel, title, disabled = false } = Astro.props;
+---
+
+{
+  disabled ? (
+    <span
+      id={id}
+      class:list={[
+        buttonVariants({ variant: "outline" }),
+        "text-muted-foreground hover:bg-transparent hover:text-muted-foreground [&_svg]:size-4",
+      ]}
+      title={title}
+      aria-disabled={disabled}
+    >
+      <slot />
+    </span>
+  ) : (
+    <a
+      id={id}
+      {href}
+      class={buttonVariants({ variant: "outline" })}
+      title={title}
+      aria-label={ariaLabel}
+      title={title}
+    >
+      <slot />
+    </a>
+  )
+}
