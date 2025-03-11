@@ -1,0 +1,20 @@
+---
+import { capitalizeFirstLetter } from "@/lib/utils";
+import Layout from "./layout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={`${title} | Louai.b`}>
+  <header class="space-y-3">
+    <h2 class="text-3xl font-semibold">{capitalizeFirstLetter(title)}</h2>
+    <p class="max-w-3xl">{description}</p>
+  </header>
+
+  <slot />
+</Layout>

@@ -3,31 +3,40 @@ import { navLinks } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const pathname = Astro.url.pathname;
+
+// Remove trailing slash from current pathname if exists
+const currentPath =
+  pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
+
+const isActive = (path: string) => {
+  const currentPathArray = currentPath.split("/").filter(p => p.trim());
+  const pathArray = path.split("/").filter(p => p.trim());
+
+  return currentPath === path || currentPathArray[0] === pathArray[0];
+};
 ---
 
-<div class="justify-center items-center gap-6 hidden lg:flex">
-    {
-        navLinks.map((link) => (
-            <a
-                href={link.href}
-                class={cn(
-                    "group relative flex font-medium flex-col items-center justify-center text-sm text-foreground/70 hover:text-primary duration-150",
-                )}
-            >
-                <span
-                    class={cn("mb", pathname === link.href && "text-primary")}
-                >
-                    {link.label}
-                </span>
+<div class="hidden items-center justify-center gap-6 lg:flex">
+  {
+    navLinks.map(link => (
+      <a
+        href={link.href}
+        class={cn(
+          "group relative flex flex-col items-center justify-center text-sm font-medium text-foreground/70 duration-150 hover:text-primary"
+        )}
+      >
+        <span class={cn("mb", isActive(link.href) && "text-primary")}>
+          {link.label}
+        </span>
 
-                <span
-                    class={cn(
-                        "h-[1px] absolute -bottom-1 bg-primary rounded-full transition-all duration-150",
-                        pathname === link.href ? "w-full" : "w-0",
-                        "group-hover:w-full",
-                    )}
-                />
-            </a>
-        ))
-    }
+        <span
+          class={cn(
+            "absolute -bottom-1 h-[1px] rounded-full bg-primary transition-all duration-150",
+            isActive(link.href) ? "w-full" : "w-0",
+            "group-hover:w-full"
+          )}
+        />
+      </a>
+    ))
+  }
 </div>

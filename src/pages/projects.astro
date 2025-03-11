@@ -1,7 +1,13 @@
 ---
 import Layout from "@/layouts/layout.astro";
+import { getCollection } from "astro:content";
+
+const articles = await getCollection("blog");
 ---
 
 <Layout title="Louai Boumediene">
   <h1>Projects page</h1>
+  <ul>
+    {articles.map(article => <li>{article.data.title}</li>)}
+  </ul>
 </Layout>
