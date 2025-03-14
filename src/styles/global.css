@@ -1,7 +1,8 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
-
 @custom-variant dark (&:where(.dark, .dark *));
+
+@import "./mdx.css";
 
 @theme {
   --color-primary: hsl(var(--primary));
@@ -122,4 +123,3 @@ body {
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--border)) transparent;
 }
-
