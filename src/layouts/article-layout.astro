@@ -2,9 +2,11 @@
 import { capitalizeFirstLetter } from "@/lib/utils";
 import Layout from "./layout.astro";
 import { ArrowLeft } from "lucide-react";
-import { buttonVariants } from "@/components/button";
 import Navbar from "@/components/navbar/index.astro";
+import Footer from "@/components/footer.astro";
+
 import type { MarkdownHeading } from "astro";
+import LinkBtn from "@/components/link-btn.astro";
 
 interface Props {
   title: string;
@@ -18,45 +20,62 @@ const { title, description, headings } = Astro.props;
 <Layout title={`${title} | Louai.b`}>
   <Navbar />
 
-  <div
-    class="sticky top-[120px] right-[-20%] flex flex-col items-start justify-start gap-4"
-  >
-    <h3 class:list="text-lg">On This Page</h3>
-    {
-      headings
-        .filter(({ depth }) => depth < 3)
-        .map(({ slug, depth, text }) => (
-          <a
-            href={`#${slug}`}
-            class:list={[
-              "text-sm text-foreground/70 no-underline duration-75 hover:text-foreground",
-              { "ml-4": depth === 2 },
-            ]}
-          >
-            {text}
-          </a>
-        ))
-    }
-  </div>
   <main
-    class="mx-auto min-h-[calc(100vh-120px)] max-w-4xl space-y-4 border-x border-dashed px-6 py-10"
+    class="relative mx-auto min-h-[calc(100vh-120px)] max-w-4xl space-y-4 border-x border-dashed px-6 py-10"
     aria-label="Main content"
   >
     <header class="space-y-3">
-      <a
-        href="/articles"
-        class:list={[
-          "flex items-center gap-2",
-          buttonVariants({ variant: "ghost" }),
-        ]}
-      >
-        <ArrowLeft className="inline size-4" />
-        Back
-      </a>
+      <LinkBtn href="/articles">
+        <ArrowLeft />
+      </LinkBtn>
       <h2 class="text-3xl font-semibold">{capitalizeFirstLetter(title)}</h2>
       <p class="max-w-3xl">{description}</p>
     </header>
 
     <slot />
   </main>
+  <Footer />
 </Layout>
+
+<script is:inline data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-blue-500";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+</script>
