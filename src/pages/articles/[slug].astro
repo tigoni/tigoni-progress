@@ -22,20 +22,15 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 
-const result = await render(post);
-
-console.info(result.headings);
+const rendered = await render(post);
 ---
 
 <ArticleLayout
-  headings={result.headings}
+  headings={rendered.headings}
   title={post.data.title}
   description={post.data.description}
 >
-  <div class="h-[25vh] w-full overflow-hidden rounded-md">
-    <Image src={ImageAsset} alt="whatever" class="h-full w-full object-cover" />
-  </div>
-  <article class="prose">
-    <result.Content />
+  <article class="prose min-w-full">
+    <rendered.Content />
   </article>
 </ArticleLayout>
