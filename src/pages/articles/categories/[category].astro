@@ -2,8 +2,12 @@
 import { getCollection } from "astro:content";
 import ArticleItem from "../../../components/article-item.astro";
 import PageLayout from "@/layouts/page-layout.astro";
-import LinkBtn from "@/components/link-btn.astro";
-import { ArrowLeft } from "lucide-react";
+
+import Pattern from "@/components/pattern.astro";
+
+import Box from "@/components/box/index.astro";
+import BoxTitle from "@/components/box/title.astro";
+import BoxHeader from "@/components/box/header.astro";
 
 export async function getStaticPaths() {
   const articels = await getCollection("blog");
@@ -28,10 +32,16 @@ const description = `
 ---
 
 <PageLayout backLink="/articles" description={description} title={title}>
-  <section class="space-y-3">
-    <h3 class="text-xl font-semibold">Articles</h3>
-    <ul class="flex w-full flex-col items-start justify-start gap-8">
+  <Pattern />
+
+  <Box>
+    <BoxHeader>
+      <BoxTitle>Articles</BoxTitle>
+    </BoxHeader>
+    <ul
+      class="flex w-full flex-col items-start justify-start divide-y divide-border"
+    >
       {categoryArticles.map(article => <ArticleItem article={article} />)}
     </ul>
-  </section>
+  </Box>
 </PageLayout>

@@ -1,11 +1,17 @@
 ---
 import ArticleItem from "@/components/article-item.astro";
 import PageLayout from "@/layouts/page-layout.astro";
+import Pattern from "@/components/pattern.astro";
+
+import Box from "@/components/box/index.astro";
+import BoxTitle from "@/components/box/title.astro";
+import BoxHeader from "@/components/box/header.astro";
+import BoxContent from "@/components/box/content.astro";
+
+import LinkTag from "@/components/link-tag.astro";
 
 import { getCollection } from "astro:content";
-import { ArrowRight } from "lucide-react";
 
-import { capitalizeFirstLetter } from "@/lib/utils";
 import { SITE } from "@/lib/config";
 import type { GetStaticPaths } from "astro";
 import Pagination from "@/components/pagination.astro";
@@ -36,46 +42,54 @@ const description = `
 ---
 
 <PageLayout title={title} description={description}>
-  <section class="space-y-3">
-    <h3 class="text-xl font-semibold">Series</h3>
-    <ul class="flex flex-wrap items-center justify-start gap-x-4 gap-y-3">
-      {
-        series.map(seriesItem => (
-          <a
-            href={`/articles/series/${seriesItem}`}
-            class="group flex items-center gap-x-1 rounded-sm text-sm decoration-muted-foreground underline-offset-4 duration-150 hover:underline"
-          >
-            <li>#{capitalizeFirstLetter(seriesItem)}</li>
-            <ArrowRight className="scale-0 duration-75 size-3.5 group-hover:scale-100 -rotate-45" />
-          </a>
-        ))
-      }
-    </ul>
-  </section>
+  <Pattern />
 
-  <section class="space-y-3">
-    <h3 class="mb-3 text-xl font-semibold">Categories</h3>
-    <ul class="flex flex-wrap items-center justify-start gap-x-4 gap-y-3">
-      {
-        categories.map(category => (
-          <a
-            href={`/articles/categories/${category}`}
-            class="group flex items-center gap-x-1 rounded-sm text-sm decoration-muted-foreground underline-offset-4 duration-150 hover:underline"
-          >
-            <li>#{capitalizeFirstLetter(category)}</li>
-            <ArrowRight className="scale-0 duration-75 size-3.5 group-hover:scale-100 -rotate-45" />
-          </a>
-        ))
-      }
-    </ul>
-  </section>
+  <Box>
+    <BoxHeader>
+      <BoxTitle>Series</BoxTitle>
+    </BoxHeader>
+    <BoxContent>
+      <ul class="flex flex-wrap items-center justify-start gap-x-4 gap-y-3">
+        {
+          series.map(seriesItem => (
+            <LinkTag href={`articles/series/${seriesItem}`} tag={seriesItem} />
+          ))
+        }
+      </ul>
+    </BoxContent>
+  </Box>
 
-  <section class="space-y-3">
-    <h3 class="mb-3 text-xl font-semibold">Articles</h3>
-    <ul class="flex w-full flex-col items-start justify-start">
+  <Pattern />
+
+  <Box>
+    <BoxHeader>
+      <BoxTitle>Categories</BoxTitle>
+    </BoxHeader>
+    <BoxContent>
+      <ul class="flex flex-wrap items-center justify-start gap-x-4 gap-y-3">
+        {
+          categories.map(category => (
+            <LinkTag href={`articles/categories/${category}`} tag={category} />
+          ))
+        }
+      </ul>
+    </BoxContent>
+  </Box>
+
+  <Pattern />
+
+  <Box>
+    <BoxHeader>
+      <BoxTitle>Articles</BoxTitle>
+    </BoxHeader>
+    <ul
+      class="flex w-full flex-col items-start justify-start divide-y divide-border"
+    >
       {page.data.map(article => <ArticleItem article={article} />)}
     </ul>
 
-    <Pagination page={page} />
-  </section>
+    <div class="border-t">
+      <Pagination page={page} />
+    </div>
+  </Box>
 </PageLayout>

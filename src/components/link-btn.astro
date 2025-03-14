@@ -5,9 +5,10 @@ export interface Props {
   href: string;
   ariaLabel?: string;
   disabled?: boolean;
+  className?: string;
 }
 
-const { href, ariaLabel, disabled = false } = Astro.props;
+const { href, ariaLabel, className, disabled = false } = Astro.props;
 ---
 
 {
@@ -16,6 +17,7 @@ const { href, ariaLabel, disabled = false } = Astro.props;
       class:list={[
         buttonVariants({ size: "icon", variant: "ghost" }),
         "rounded-full text-muted-foreground hover:bg-transparent hover:text-muted-foreground [&_svg]:size-4",
+        className,
       ]}
       aria-disabled={disabled}
     >
@@ -27,6 +29,7 @@ const { href, ariaLabel, disabled = false } = Astro.props;
       class:list={[
         buttonVariants({ size: "icon", variant: "ghost" }),
         "!rounded-full",
+        className,
       ]}
       aria-label={ariaLabel}
     >

@@ -5,6 +5,13 @@ import Layout from "./layout.astro";
 import Navbar from "@/components/navbar/index.astro";
 import Footer from "@/components/footer.astro";
 import LinkBtn from "@/components/link-btn.astro";
+import Pattern from "@/components/pattern.astro";
+
+import Box from "@/components/box/index.astro";
+import BoxTitle from "@/components/box/title.astro";
+import BoxHeader from "@/components/box/header.astro";
+import BoxContent from "@/components/box/content.astro";
+
 import { ArrowLeft } from "lucide-react";
 
 interface Props {
@@ -19,20 +26,27 @@ const { title, description, backLink } = Astro.props;
 <Layout title={`${title} | Louai.b`}>
   <Navbar />
   <main
-    class="mx-auto min-h-[calc(100vh-120px)] max-w-4xl space-y-12 border-x border-dashed px-6 py-10"
+    class="mx-auto min-h-[calc(100vh-120px)] max-w-4xl"
     aria-label="Main content"
   >
-    <header class="space-y-3">
+    <Pattern className="h-16">
       {
         backLink && (
-          <LinkBtn href={backLink}>
+          <LinkBtn className="absolute bottom-0 left-2 z-1" href={backLink}>
             <ArrowLeft />
           </LinkBtn>
         )
       }
-      <h2 class="text-3xl font-bold">{capitalizeFirstLetter(title)}</h2>
-      <p class="max-w-3xl text-sm">{description}</p>
-    </header>
+    </Pattern>
+
+    <Box>
+      <BoxHeader>
+        <BoxTitle>{capitalizeFirstLetter(title)}</BoxTitle>
+      </BoxHeader>
+      <BoxContent>
+        {description}
+      </BoxContent>
+    </Box>
 
     <slot />
   </main>
