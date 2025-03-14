@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import ArticleItem from "../../../components/article-item.astro";
 import PageLayout from "@/layouts/page-layout.astro";
+import LinkBtn from "@/components/link-btn.astro";
+import { ArrowLeft } from "lucide-react";
 
 export async function getStaticPaths() {
   const articels = await getCollection("blog");
@@ -25,7 +27,7 @@ const description = `
     `;
 ---
 
-<PageLayout description={description} title={title}>
+<PageLayout backLink="/articles" description={description} title={title}>
   <section class="space-y-3">
     <h3 class="text-xl font-semibold">Articles</h3>
     <ul class="flex w-full flex-col items-start justify-start gap-8">
