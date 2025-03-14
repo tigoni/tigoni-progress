@@ -7,9 +7,6 @@ import "@fontsource/geist/800.css";
 import "@fontsource/geist/900.css";
 import "@fontsource/jetbrains-mono/600.css";
 
-import Navbar from "@/components//navbar/index.astro";
-import Footer from "@/components/footer.astro";
-
 import { SITE } from "@/lib/config";
 import { LOCALE } from "@/lib/constants";
 
@@ -117,13 +114,6 @@ const structuredData = {
     <meta name="theme-color" content="" />
   </head>
   <body>
-    <Navbar />
-    <main
-      class="mx-auto min-h-[calc(100vh-120px)] max-w-4xl space-y-12 border-x border-dashed px-6 py-10"
-      aria-label="Main content"
-    >
-      <slot />
-    </main>
-    <Footer />
+    <slot />
   </body>
 </html>
