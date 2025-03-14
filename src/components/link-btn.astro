@@ -5,11 +5,10 @@ export interface Props {
   id?: string;
   href: string;
   ariaLabel?: string;
-  title?: string;
   disabled?: boolean;
 }
 
-const { id, href, ariaLabel, title, disabled = false } = Astro.props;
+const { id, href, ariaLabel, disabled = false } = Astro.props;
 ---
 
 {
@@ -17,10 +16,9 @@ const { id, href, ariaLabel, title, disabled = false } = Astro.props;
     <span
       id={id}
       class:list={[
-        buttonVariants({ variant: "outline" }),
-        "text-muted-foreground hover:bg-transparent hover:text-muted-foreground [&_svg]:size-4",
+        buttonVariants({ size: "icon", variant: "ghost" }),
+        "rounded-full text-muted-foreground hover:bg-transparent hover:text-muted-foreground [&_svg]:size-4",
       ]}
-      title={title}
       aria-disabled={disabled}
     >
       <slot />
@@ -29,10 +27,11 @@ const { id, href, ariaLabel, title, disabled = false } = Astro.props;
     <a
       id={id}
       {href}
-      class={buttonVariants({ variant: "outline" })}
-      title={title}
+      class:list={[
+        buttonVariants({ size: "icon", variant: "ghost" }),
+        "!rounded-full",
+      ]}
       aria-label={ariaLabel}
-      title={title}
     >
       <slot />
     </a>
