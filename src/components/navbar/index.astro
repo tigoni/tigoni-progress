@@ -2,10 +2,19 @@
 import { ModeToggle } from "@/components/mode-toggle";
 import NavLinks from "./nav-links.astro";
 import MobileNavLinks from "./mobile-nav-links.astro";
+
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
 ---
 
 <nav
-  class="border-grid sticky top-1 z-50 w-full border-b border-dashed bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+  class:list={[
+    "border-grid sticky top-0 z-50 w-full border-b border-dashed bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+    className,
+  ]}
 >
   <div
     class="mx-auto flex max-w-4xl items-center justify-between border-x border-dashed px-4 py-2"
