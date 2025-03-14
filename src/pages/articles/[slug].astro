@@ -1,0 +1,41 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import ArticleLayout from "@/layouts/article-layout.astro";
+import { render } from "astro:content";
+import { Image } from "astro:assets";
+import ImageAsset from "@/components/article.png";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+
+  const postResult = posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+
+  return postResult;
+}
+
+const { post } = Astro.props;
+
+const result = await render(post);
+
+console.info(result.headings);
+---
+
+<ArticleLayout
+  headings={result.headings}
+  title={post.data.title}
+  description={post.data.description}
+>
+  <div class="h-[25vh] w-full overflow-hidden rounded-md">
+    <Image src={ImageAsset} alt="whatever" class="h-full w-full object-cover" />
+  </div>
+  <article class="prose">
+    <result.Content />
+  </article>
+</ArticleLayout>
