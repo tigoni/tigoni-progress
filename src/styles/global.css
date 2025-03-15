@@ -132,3 +132,10 @@ body {
   @apply relative after:absolute after:bottom-0 after:-left-[100vw] after:h-0 after:w-[200vw] after:border-b after:border-dashed after:border-border;
 }
 
+.copy-code {
+  @apply absolute top-2 right-2 cursor-pointer rounded-md border border-transparent p-2 text-xs font-bold duration-150 hover:bg-primary hover:text-primary-foreground;
+}
+
+.copy-code svg {
+  @apply h-4 w-4;
+}
