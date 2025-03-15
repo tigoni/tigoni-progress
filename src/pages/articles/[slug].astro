@@ -2,8 +2,9 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import ArticleLayout from "@/layouts/article-layout.astro";
 import { render } from "astro:content";
-import { Image } from "astro:assets";
-import ImageAsset from "@/components/article.png";
+
+import Box from "@/components/box/index.astro";
+import BoxContent from "@/components/box/content.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -28,9 +29,14 @@ const rendered = await render(post);
 <ArticleLayout
   headings={rendered.headings}
   title={post.data.title}
-  description={post.data.description}
+  date={post.data.pubDatetime}
+  readTime={post.data.readTime}
 >
-  <article class="prose min-w-full">
-    <rendered.Content />
-  </article>
+  <Box>
+    <BoxContent className="pt-8">
+      <article class="prose min-w-full">
+        <rendered.Content />
+      </article>
+    </BoxContent>
+  </Box>
 </ArticleLayout>

@@ -5,35 +5,65 @@ import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/navbar/index.astro";
 import Footer from "@/components/footer.astro";
 
+import Pattern from "@/components/pattern.astro";
+
+import Box from "@/components/box/index.astro";
+import BoxTitle from "@/components/box/title.astro";
+import BoxHeader from "@/components/box/header.astro";
+
 import type { MarkdownHeading } from "astro";
 import LinkBtn from "@/components/link-btn.astro";
 
 interface Props {
   title: string;
-  description: string;
+  readTime: string;
+  date: Date;
   headings: MarkdownHeading[];
 }
 
-const { title, description, headings } = Astro.props;
+const { title, readTime, date, headings } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat("en-GB", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+})
+  .format(date)
+  .replace(/\//g, ".");
 ---
 
 <Layout title={`${title} | Louai.b`}>
   <Navbar className="top-1" />
 
   <main
-    class="relative mx-auto min-h-[calc(100vh-120px)] max-w-4xl space-y-4 border-x border-dashed px-6 py-10"
+    class="mx-auto min-h-[calc(100vh-120px)] max-w-4xl"
     aria-label="Main content"
   >
-    <header class="space-y-3">
-      <LinkBtn href="/articles">
+    <Pattern className="h-16">
+      <LinkBtn className="absolute bottom-0 left-2 z-1" href="/articles">
         <ArrowLeft />
       </LinkBtn>
-      <h2 class="text-3xl font-semibold">{capitalizeFirstLetter(title)}</h2>
-      <p class="max-w-3xl">{description}</p>
-    </header>
+    </Pattern>
+
+    <Box>
+      <BoxHeader class="text-sm !font-medium text-muted-foreground">
+        {formattedDate} • {readTime}
+      </BoxHeader>
+
+      <Pattern className="screen-line-after" />
+
+      <BoxHeader>
+        <BoxTitle class="text-3xl !font-black"
+          >{capitalizeFirstLetter(title)}</BoxTitle
+        >
+      </BoxHeader>
+
+      <Pattern />
+    </Box>
 
     <slot />
   </main>
+
   <Footer />
 </Layout>
 

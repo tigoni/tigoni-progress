@@ -1,14 +1,14 @@
 ---
 interface Props {
-  class?: string;
+  className?: string;
 }
 
-const { class: className } = Astro.props;
+const { className } = Astro.props;
 ---
 
 <section
   class:list={[
-    "screen-line-before screen-line-after border-x border-border",
+    "screen-line-before screen-line-after border-x border-dashed border-border",
     className,
   ]}
 >
