@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+
+import ImgAvatar from "@/assets/louai-avatar.jpeg";
+
+import { Profile } from "@/lib/constants";
+
+interface Props {
+  className?: string;
+  size?: number;
+  priority?: boolean;
+}
+
+const { className, size, priority } = Astro.props;
+---
+
+<Image
+  class:list={[className]}
+  alt={`${Profile.displayName}'s avatar`}
+  src={ImgAvatar}
+  width={size}
+  height={size}
+  quality={100}
+  priority={priority}
+/>
