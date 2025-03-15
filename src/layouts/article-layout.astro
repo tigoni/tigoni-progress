@@ -4,12 +4,14 @@ import Layout from "./layout.astro";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/navbar/index.astro";
 import Footer from "@/components/footer.astro";
+import Toc from "@/components/toc.astro";
 
 import Pattern from "@/components/pattern.astro";
 
 import Box from "@/components/box/index.astro";
 import BoxTitle from "@/components/box/title.astro";
 import BoxHeader from "@/components/box/header.astro";
+import BoxContent from "@/components/box/content.astro";
 
 import type { MarkdownHeading } from "astro";
 import LinkBtn from "@/components/link-btn.astro";
@@ -35,56 +37,59 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
 <Layout title={`${title} | Louai.b`}>
   <Navbar className="top-1" />
 
-  <main
-    class="mx-auto min-h-[calc(100vh-120px)] max-w-4xl"
-    aria-label="Main content"
-  >
-    <Pattern className="h-16">
-      <LinkBtn className="absolute bottom-0 left-2 z-1" href="/articles">
-        <ArrowLeft />
-      </LinkBtn>
-    </Pattern>
+  <main aria-label="Main content" class="min-h-[calc(100vh-120px)]">
+    <div class="mx-auto max-w-4xl">
+      <Pattern className="h-16">
+        <LinkBtn className="absolute bottom-0 left-2 z-1" href="/articles">
+          <ArrowLeft />
+        </LinkBtn>
+      </Pattern>
 
-    <Box>
-      <BoxHeader class="text-sm !font-medium text-muted-foreground">
-        {formattedDate} • {readTime}
-      </BoxHeader>
+      <Box>
+        <BoxHeader class="text-sm !font-medium text-muted-foreground">
+          {formattedDate} • {readTime}
+        </BoxHeader>
 
-      <Pattern className="screen-line-after" />
+        <Pattern className="screen-line-after" />
 
-      <BoxHeader>
-        <BoxTitle class="text-3xl !font-black"
-          >{capitalizeFirstLetter(title)}</BoxTitle
-        >
-      </BoxHeader>
+        <BoxHeader>
+          <BoxTitle className="text-3xl !font-black"
+            >{capitalizeFirstLetter(title)}</BoxTitle
+          >
+        </BoxHeader>
 
-      <Pattern />
-    </Box>
+        <Pattern />
+      </Box>
+    </div>
 
-    <slot />
+    <div class="relative mx-auto flex max-w-4xl">
+      <Box className="min-w-full">
+        <BoxContent className="pt-8">
+          <article class="prose min-w-full">
+            <slot />
+          </article>
+        </BoxContent>
+      </Box>
+
+      <Toc headings={headings} />
+    </div>
   </main>
 
   <Footer />
 </Layout>
 
 <script is:inline data-astro-rerun>
-  /** Create a progress indicator
-   *  at the top */
   function createProgressBar() {
-    // Create the main container div
     const progressContainer = document.createElement("div");
     progressContainer.className =
       "progress-container fixed top-0 z-10 h-1 w-full bg-background";
 
-    // Create the progress bar div
     const progressBar = document.createElement("div");
     progressBar.className = "progress-bar h-1 w-0 bg-blue-500";
     progressBar.id = "myBar";
 
-    // Append the progress bar to the progress container
     progressContainer.appendChild(progressBar);
 
-    // Append the progress container to the document body or any other desired parent element
     document.body.appendChild(progressContainer);
   }
   createProgressBar();
@@ -98,7 +103,8 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
       const height =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
+      const scrolled = Math.ceil((winScroll / height) * 100);
+
       if (document) {
         const myBar = document.getElementById("myBar");
         if (myBar) {

@@ -41,7 +41,9 @@ const { title, description, backLink } = Astro.props;
 
     <Box>
       <BoxHeader>
-        <BoxTitle>{capitalizeFirstLetter(title)}</BoxTitle>
+        <BoxTitle className="text-2xl !font-black"
+          >{capitalizeFirstLetter(title)}</BoxTitle
+        >
       </BoxHeader>
       <BoxContent>
         {description}

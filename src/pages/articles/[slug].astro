@@ -32,11 +32,5 @@ const rendered = await render(post);
   date={post.data.pubDatetime}
   readTime={post.data.readTime}
 >
-  <Box>
-    <BoxContent className="pt-8">
-      <article class="prose min-w-full">
-        <rendered.Content />
-      </article>
-    </BoxContent>
-  </Box>
+  <rendered.Content />
 </ArticleLayout>
