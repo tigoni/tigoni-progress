@@ -1,0 +1,30 @@
+---
+import Box from "@/components/box/index.astro";
+import BoxHeader from "@/components/box/header.astro";
+import BoxTitle from "@/components/box/title.astro";
+import BoxContent from "@/components/box/content.astro";
+
+import { TECH_STACK } from "@/lib/constants";
+---
+
+<Box>
+  <BoxHeader>
+    <BoxTitle> Tech Stack </BoxTitle>
+  </BoxHeader>
+  <BoxContent>
+    <div class="flex flex-wrap items-center justify-start gap-4">
+      {
+        TECH_STACK.map(item => (
+          <a
+            href={item.href}
+            class:list={[
+              "flex size-12 items-center justify-center rounded-md border bg-blue-50/10",
+            ]}
+          >
+            <item.icon className="size-6" />
+          </a>
+        ))
+      }
+    </div>
+  </BoxContent>
+</Box>
