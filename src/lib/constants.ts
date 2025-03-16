@@ -115,7 +115,6 @@ export const TECH_STACK = [
   {
     title: "Next.js",
     href: "https://nextjs.org/",
-    theme: true,
     icon: NextJs,
   },
   {
@@ -126,13 +125,11 @@ export const TECH_STACK = [
   {
     title: "shadcn/ui",
     href: "https://ui.shadcn.com/",
-    theme: true,
     icon: ShadcnUI,
   },
   {
     title: "Radix UI",
     href: "https://www.radix-ui.com/",
-    theme: true,
     icon: RadixUI,
   },
   {
