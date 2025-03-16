@@ -11,6 +11,7 @@ import { SITE } from "@/lib/config";
 import { LOCALE } from "@/lib/constants";
 
 import "@/styles/global.css";
+import BackToTop from "@/components/back-to-top.astro";
 
 export interface Props {
   title?: string;
@@ -49,7 +50,7 @@ const structuredData = {
 };
 ---
 
-<script is:inline>
+<script>
   const getThemePreference = () => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
@@ -113,7 +114,8 @@ const structuredData = {
 
     <meta name="theme-color" content="" />
   </head>
-  <body class="max-w-screen overflow-x-hidden">
+  <body class="relative max-w-screen overflow-x-hidden">
     <slot />
+    <BackToTop />
   </body>
 </html>
