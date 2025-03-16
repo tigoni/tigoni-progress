@@ -4,14 +4,12 @@ import BoxHeader from "@/components/box/header.astro";
 import BoxTitle from "@/components/box/title.astro";
 import BoxContent from "@/components/box/content.astro";
 
-import { Experiences } from "./experiences";
+import { Projects } from "@/components/projects";
 ---
 
 <Box>
   <BoxHeader>
-    <BoxTitle> Experience </BoxTitle>
+    <BoxTitle> Projects </BoxTitle>
   </BoxHeader>
-  <BoxContent>
-    <Experiences client:load />
-  </BoxContent>
+  <Projects client:load />
 </Box>

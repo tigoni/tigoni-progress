@@ -118,7 +118,7 @@
 
 
 * {
-  @apply border-border;
+  @apply border-border border-dashed;
 }
 
 html {

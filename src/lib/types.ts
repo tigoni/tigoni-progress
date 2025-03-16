@@ -22,3 +22,13 @@ export type Experience = {
     positions: ExperiencePosition[];
     current?: boolean;
 };
+
+
+export type Project = {
+    id: string;
+    title: string;
+    time: string;
+    link: string;
+    tags: string[];
+    description?: string;
+};
