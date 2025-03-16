@@ -1,0 +1,19 @@
+---
+import Box from "@/components/box/index.astro";
+import BoxHeader from "@/components/box/header.astro";
+import BoxTitle from "@/components/box/title.astro";
+import BoxContent from "@/components/box/content.astro";
+import { ExperienceItem } from "./experience-item";
+
+import { EXPERIENCES } from "@/lib/constants";
+import { Experiences } from "./experiences";
+---
+
+<Box>
+  <BoxHeader>
+    <BoxTitle> Experience </BoxTitle>
+  </BoxHeader>
+  <BoxContent>
+    <Experiences client:load />
+  </BoxContent>
+</Box>
