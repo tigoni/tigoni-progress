@@ -1,10 +1,11 @@
 ---
+import { profileInfo } from "@/lib/constants";
+import { MarkdownRenderer } from "./markdown-renderer";
+
 import Box from "@/components/box/index.astro";
 import BoxHeader from "@/components/box/header.astro";
 import BoxTitle from "@/components/box/title.astro";
 import BoxContent from "@/components/box/content.astro";
-
-import { profileInfo } from "@/lib/constants";
 ---
 
 <Box>
@@ -12,6 +13,6 @@ import { profileInfo } from "@/lib/constants";
     <BoxTitle> About </BoxTitle>
   </BoxHeader>
   <BoxContent>
-    {profileInfo.about}
+    <MarkdownRenderer content={profileInfo.about} />
   </BoxContent>
 </Box>

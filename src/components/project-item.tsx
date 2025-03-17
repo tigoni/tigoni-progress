@@ -4,6 +4,7 @@ import { ChevronRightIcon, ExternalLink, FolderCodeIcon } from "lucide-react";
 import { cn } from "@/lib/utils"
 
 import type { Project } from "@/lib/types";
+import { MarkdownRenderer } from "./markdown-renderer";
 
 export function ProjectItem({
     className,
@@ -42,7 +43,7 @@ export function ProjectItem({
 
                     <AccordionPrimitive.Content className="overflow-hidden transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
                         {project?.description && (
-                            <p>{project?.description}</p>
+                            <MarkdownRenderer className="ml-4" content={project?.description} />
                         )}
 
                         {Array.isArray(project.tags) && project.tags.length > 0 && (
