@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { NotebookPen } from "lucide-react";
+import getReadingTime from "reading-time";
 
 interface Props {
   article: CollectionEntry<"blog">;
@@ -36,7 +37,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
       }
     </ul>
     <p class="text-xs text-foreground">
-      {formattedDate} | {article.data.readTime}
+      {formattedDate} | {getReadingTime(article.body!).text}
     </p>
   </div>
 </a>
