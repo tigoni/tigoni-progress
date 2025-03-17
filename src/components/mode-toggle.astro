@@ -20,34 +20,42 @@ import { cn, buttonVariants } from "@/lib/utils";
   />
   <span class="sr-only">Toggle theme</span>
 </button>
-
-<script>
-  const toggleButton = document.getElementById("theme-toggle");
-
-  // Initialize theme on load
-  const initializeTheme = () => {
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setThemeAppearance(isDarkMode ? "dark" : "light");
+<script is:inline>
+  // Check for theme preference in localStorage or system preference
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
   };
 
-  // Set theme appearance
-  const setThemeAppearance = (theme: string) => {
+  // Set theme on document and in localStorage
+  const setThemeAppearance = theme => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
+    localStorage.setItem("theme", theme);
   };
 
-  // Toggle theme function
-  const toggleMode = () => {
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setThemeAppearance(isDarkMode ? "light" : "dark");
-  };
+  // Apply the theme immediately to avoid flash
+  const theme = getThemePreference();
+  setThemeAppearance(theme);
 
-  // Add click event listener
-  toggleButton?.addEventListener("click", toggleMode);
+  document.addEventListener("astro:page-load", () => {
+    const toggleButton = document.getElementById("theme-toggle");
 
-  // Initialize on page load
-  document.addEventListener("DOMContentLoaded", initializeTheme);
+    // Toggle theme function
+    const toggleMode = () => {
+      const isDarkMode = document.documentElement.classList.contains("dark");
+      const newTheme = isDarkMode ? "light" : "dark";
+      setThemeAppearance(newTheme);
+    };
+
+    // Add click event listener
+    toggleButton?.addEventListener("click", toggleMode);
+  });
 </script>
