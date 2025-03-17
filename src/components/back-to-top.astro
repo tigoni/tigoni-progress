@@ -1,18 +1,10 @@
 ---
-import { Button } from "@/components/button";
-
 import { ChevronUp } from "lucide-react";
+import { buttonVariants, cn } from "@/lib/utils";
 ---
 
-<Button
-  id="back-to-top"
-  className="fixed right-4 bottom-[4rem] z-50 cursor-pointer rounded-full lg:left-[calc(100vw/2+400px)]"
-  size="icon"
->
-  <ChevronUp />
-</Button>
-
 <script>
+  console.info("EHllo there");
   function handleScroll() {
     const button = document.querySelector("#back-to-top");
     if (!button) return;
@@ -46,3 +38,13 @@ import { ChevronUp } from "lucide-react";
     handleScroll(); // Ensure the button state updates after a page swap
   });
 </script>
+
+<button
+  id="back-to-top"
+  class={cn(
+    buttonVariants({ size: "icon" }),
+    "fixed right-4 bottom-[4rem] z-50 cursor-pointer rounded-full lg:left-[calc(100vw/2+400px)]"
+  )}
+>
+  <ChevronUp />
+</button>

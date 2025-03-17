@@ -1,0 +1,53 @@
+---
+import { Moon, Sun } from "lucide-react";
+import { cn, buttonVariants } from "@/lib/utils";
+---
+
+<button
+  id="theme-toggle"
+  class={cn(
+    buttonVariants({ size: "icon", variant: "ghost" }),
+    "cursor-pointer rounded-full"
+  )}
+>
+  <Sun
+    id="sun-icon"
+    className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
+  />
+  <Moon
+    id="moon-icon"
+    className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
+  />
+  <span class="sr-only">Toggle theme</span>
+</button>
+
+<script>
+  const toggleButton = document.getElementById("theme-toggle");
+
+  // Initialize theme on load
+  const initializeTheme = () => {
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    setThemeAppearance(isDarkMode ? "dark" : "light");
+  };
+
+  // Set theme appearance
+  const setThemeAppearance = (theme: string) => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
+  // Toggle theme function
+  const toggleMode = () => {
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    setThemeAppearance(isDarkMode ? "light" : "dark");
+  };
+
+  // Add click event listener
+  toggleButton?.addEventListener("click", toggleMode);
+
+  // Initialize on page load
+  document.addEventListener("DOMContentLoaded", initializeTheme);
+</script>
