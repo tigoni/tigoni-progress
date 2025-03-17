@@ -38,7 +38,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
   <Navbar className="top-1" />
 
   <main aria-label="Main content" class="min-h-[calc(100vh-120px)]">
-    <div class="mx-auto max-w-4xl">
+    <div class="mx-auto max-w-3xl">
       <Pattern className="h-16">
         <LinkBtn className="absolute bottom-0 left-2 z-1" href="/articles">
           <ArrowLeft />
@@ -62,7 +62,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
       </Box>
     </div>
 
-    <div class="relative mx-auto flex max-w-4xl">
+    <div class="relative mx-auto flex max-w-3xl">
       <Box className="min-w-full">
         <BoxContent className="pt-8">
           <article class="prose min-w-full">
@@ -94,8 +94,9 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
   }
   createProgressBar();
 
-  /** Update the progress bar
-   *  when user scrolls */
+  /**
+   * Update the progress bar when user scrolls
+   * */
   function updateScrollProgress() {
     document.addEventListener("scroll", () => {
       const winScroll =
@@ -115,6 +116,9 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
   }
   updateScrollProgress();
 
+  /**
+   * Add copy button to code snippets in markdown
+   */
   let copyButtonLabel = "Copy";
   let codeBlocks = Array.from(document.querySelectorAll("pre"));
 

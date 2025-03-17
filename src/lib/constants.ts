@@ -300,30 +300,17 @@ export const profileInfo = {
     },
   ],
   about: `
-Louai Boumediene
+Louai Boumediene  
 Software Developer & UI/UX Designer  
 
-About Me  
-I am a passionate software developer and UI/UX designer dedicated to crafting high-performance, user-centric software solutions with intuitive and engaging designs.  
+Building high-performance, user-centric software with modern front-end technologies.  
 
-With 5+ years of experience in web development, I specialize in building high-quality web and mobile applications using:  
-- Next.js, React, and TypeScript  
-- Modern front-end technologies  
-- Scalable and performant architectures  
+**Projects:**  
+- [Zalo Mini App](https://zalo.me/s/1736112917405511258/)  
+- [ZaDark](https://zadark.com/) – 80,000+ downloads, [Chrome Web Store](https://chromewebstore.google.com/detail/llfhpkkeljlgnjgkholeppfnepmjppob)  
 
-Experience & Interests  
-Beyond my full-time work, I enjoy:  
-- Exploring new technologies  
-- Turning ideas into reality through personal projects  
+Open to collaboration—let’s connect!
 
-Notable Project: ZaDark (https://zadark.com)  
-ZaDark is a powerful browser extension that enhances the Zalo experience on PC and Web.  
-- Launched in 2022  
-- 80,000+ downloads on SourceForge (https://sourceforge.net/projects/zadark)  
-- 10,000+ peak active users on the Chrome Web Store (https://chromewebstore.google.com/detail/llfhpkkeljlgnjgkholeppfnepmjppob)  
-
-Let’s Connect!  
-I’m always open to collaboration and new opportunities. Feel free to reach out!
 `,
   avatar: "/images/chanhdai-avatar.jpeg",
   ogImage: "/images/chanhdai-og-image.png",

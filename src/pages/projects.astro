@@ -1,13 +1,11 @@
 ---
-import Layout from "@/layouts/layout.astro";
-import { getCollection } from "astro:content";
-
-const articles = await getCollection("blog");
+import Pattern from "@/components/pattern.astro";
+import ProjectsSection from "@/components/projects-section.astro";
+import PageLayout from "@/layouts/page-layout.astro";
 ---
 
-<Layout title="Louai Boumediene">
-  <h1>Projects page</h1>
-  <ul>
-    {articles.map(article => <li>{article.data.title}</li>)}
-  </ul>
-</Layout>
+<PageLayout description="my description" title="My Projects">
+  <Pattern />
+  <ProjectsSection />
+  <Pattern />
+</PageLayout>

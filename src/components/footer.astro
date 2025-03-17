@@ -2,45 +2,43 @@
 import { Icons } from "./icons";
 
 const socialLinks = [
-    {
-        icon: Icons.github,
-        url: "https://github.com/Louai-Zokerburg",
-    },
-    {
-        icon: Icons.linkedin,
-        url: "https://www.linkedin.com/in/louai-boumediene-018919262/",
-    },
-    {
-        icon: Icons.x,
-        url: "https://x.com/Louai_Dourov",
-    },
+  {
+    icon: Icons.github,
+    url: "https://github.com/Louai-Zokerburg",
+  },
+  {
+    icon: Icons.linkedin,
+    url: "https://www.linkedin.com/in/louai-boumediene-018919262/",
+  },
+  {
+    icon: Icons.x,
+    url: "https://x.com/Louai_Dourov",
+  },
 ];
 ---
 
 <footer class="w-full border-t border-dashed">
-    <div
-        class="max-w-4xl border-x border-dashed flex-col-reverse py-4 lg:flex-row flex justify-between mx-auto px-4 gap-4 items-center"
-    >
-        <p class="text-sm text-foreground/70">
-            Built by <a
-                href="https://github.com/Louai-Zokerburg"
-                class="underline text-primary font-medium underline-offset-4"
-                >Louai.b</a
-            > • source code available on <a
-                href="https://github.com/Louai-Zokerburg/louai"
-                class="underline text-primary font-medium underline-offset-4"
-                >Github</a
-            >
-        </p>
+  <div
+    class="mx-auto flex max-w-3xl flex-col-reverse items-center justify-between gap-4 border-x border-dashed px-4 py-2 lg:flex-row"
+  >
+    <p class="text-xs text-foreground/70">
+      Built by <a
+        href="https://github.com/Louai-Zokerburg"
+        class="font-medium text-primary underline underline-offset-4">Louai.b</a
+      > • source code available on <a
+        href="https://github.com/Louai-Zokerburg/louai"
+        class="font-medium text-primary underline underline-offset-4">Github</a
+      >
+    </p>
 
-        <div class="flex justify-center items-center gap-4">
-            {
-                socialLinks.map((link) => (
-                    <a href={link.url}>
-                        <link.icon className="size-5 duration-150 hover:text-primary" />
-                    </a>
-                ))
-            }
-        </div>
+    <div class="flex items-center justify-center gap-4">
+      {
+        socialLinks.map(link => (
+          <a href={link.url}>
+            <link.icon className="size-4 duration-150 hover:text-primary" />
+          </a>
+        ))
+      }
     </div>
+  </div>
 </footer>
