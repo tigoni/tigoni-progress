@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 
 import ImgAvatar from "@/assets/louai-avatar.jpg";
 
-import { profileInfo } from "@/lib/constants";
+import { PROFILE_INFO } from "@/lib/constants/profile";
 
 interface Props {
   className?: string;
@@ -16,7 +16,7 @@ const { className, size, priority } = Astro.props;
 
 <Image
   class:list={[className]}
-  alt={`${profileInfo.displayName}'s avatar`}
+  alt={`${PROFILE_INFO.displayName}'s avatar`}
   src={ImgAvatar}
   width={size}
   height={size}

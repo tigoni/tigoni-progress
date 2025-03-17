@@ -4,7 +4,7 @@ import VerifiedIcon from "@/components/verified.astro";
 import Box from "@/components/box/index.astro";
 import BoxContent from "@/components/box/content.astro";
 
-import { profileInfo } from "@/lib/constants";
+import { PROFILE_INFO } from "@/lib/constants/profile";
 import { FlipEffect } from "@/components/flip-effect";
 ---
 
@@ -30,14 +30,14 @@ import { FlipEffect } from "@/components/flip-effect";
       <h1
         class="font-heading flex items-center gap-x-2 pl-4 text-2xl font-black"
       >
-        {profileInfo.displayName}
+        {PROFILE_INFO.displayName}
         <span class="relative top-px text-blue-400">
           <VerifiedIcon />
         </span>
       </h1>
 
       <div class="h-12 border-t border-dashed py-1 pl-4 sm:h-auto">
-        <FlipEffect client:load sentences={profileInfo.flipSentences} />
+        <FlipEffect client:load sentences={PROFILE_INFO.flipSentences} />
       </div>
     </div>
   </div>

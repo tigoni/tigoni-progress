@@ -1,6 +1,6 @@
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
-import { PROJECTS } from "@/lib/constants";
+import { PROJECTS } from "@/lib/constants/projects";
 import { ProjectItem } from "@/components/project-item";
 
 export function Projects() {

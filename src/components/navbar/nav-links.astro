@@ -1,5 +1,5 @@
 ---
-import { navLinks } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants/index";
 import { cn } from "@/lib/utils";
 
 const pathname = Astro.url.pathname;
@@ -18,7 +18,7 @@ const isActive = (path: string) => {
 
 <div class="hidden items-center justify-center gap-6 lg:flex">
   {
-    navLinks.map(link => (
+    NAV_LINKS.map(link => (
       <a
         href={link.href}
         class={cn(

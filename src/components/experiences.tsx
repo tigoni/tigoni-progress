@@ -1,5 +1,5 @@
 
-import { EXPERIENCES } from "@/lib/constants";
+import { EXPERIENCES } from "@/lib/constants/experience";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ExperienceItem } from "./experience-item";
 

@@ -1,5 +1,5 @@
 ---
-import { profileInfo } from "@/lib/constants";
+import { PROFILE_INFO } from "@/lib/constants/profile";
 import { MarkdownRenderer } from "./markdown-renderer";
 
 import Box from "@/components/box/index.astro";
@@ -13,6 +13,6 @@ import BoxContent from "@/components/box/content.astro";
     <BoxTitle> About </BoxTitle>
   </BoxHeader>
   <BoxContent>
-    <MarkdownRenderer content={profileInfo.about} />
+    <MarkdownRenderer content={PROFILE_INFO.about} />
   </BoxContent>
 </Box>

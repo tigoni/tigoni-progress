@@ -1,5 +1,5 @@
 ---
-import { navLinks } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants/index";
 import { buttonVariants, cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 
@@ -24,7 +24,7 @@ const pathname = Astro.url.pathname;
     class="fixed top-14 right-0 z-50 flex min-h-screen w-3/4 translate-x-full transform flex-col items-center justify-center gap-6 border bg-background transition-transform duration-300 ease-in-out"
   >
     {
-      navLinks.map(link => (
+      NAV_LINKS.map(link => (
         <a
           href={link.href}
           class={cn(
