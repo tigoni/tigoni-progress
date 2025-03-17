@@ -7,6 +7,8 @@ import "@fontsource/geist/800.css";
 import "@fontsource/geist/900.css";
 import "@fontsource/jetbrains-mono/600.css";
 
+import { ClientRouter } from "astro:transitions";
+
 import { SITE } from "@/lib/config";
 import { LOCALE } from "@/lib/constants";
 
@@ -105,6 +107,8 @@ const structuredData = {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
 
+    <ClientRouter />
+
     <!-- Google JSON-LD Structured data -->
     <script
       type="application/ld+json"
@@ -116,6 +120,6 @@ const structuredData = {
   </head>
   <body class="relative min-h-screen overflow-x-hidden">
     <slot />
-    <BackToTop />
+    <BackToTop client:load />
   </body>
 </html>

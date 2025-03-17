@@ -17,7 +17,7 @@ export const Experiences = () => {
             <>
                 {
                     EXPERIENCES.map(experience => {
-                        return <ExperienceItem experience={experience} />;
+                        return <ExperienceItem key={experience.company} experience={experience} />;
                     })
                 }
             </>
