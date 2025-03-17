@@ -1,4 +1,7 @@
-import { BunJs, Docker, Figma, Framer, Git, JavaScript, MongoDB, NextJs, NodeJs, Python, RadixUI, React, Redis, Redux, ShadcnUI, TailwindCSS, TypeScript } from "developer-icons";
+import { BunJs, Docker, Figma, Framer, Git, XDark, WhatsApp, LinkedIn, JavaScript, MongoDB, NextJs, NodeJs, Python, RadixUI, React, Redis, Redux, ShadcnUI, TailwindCSS, TypeScript } from "developer-icons";
+
+
+
 import type { Experience, Project } from "./types";
 
 export const LOCALE = {
@@ -565,3 +568,25 @@ export const PROJECTS: Project[] = [
       "Study English is a website that provides free English learning tools for high school students. The product operates on the Internet, is programmed using Laravel, and can be accessed by any browser. A special feature of the website is its multi-platform design with responsive technology, making it compatible with mobile devices running operating systems such as Android, iOS, Windows Phone, etc. The product offers functions such as Angle, Learn Vocabulary, Quiz, Practice Listening, Library, and IVsearch.\n- Consolation Prize | National Youth and Children's Creativity Contest 2016\n- First Prize | Youth and Children's Creativity Contest - Can Tho City 2016\n- Consolation Prize | Young Informatics Contest - Can Tho City 2016",
   },
 ];
+
+
+export const SHARE_LINKS = [
+  {
+    name: "WhatsApp",
+    href: "https://wa.me/?text=",
+    linkTitle: `Share this post via WhatsApp`,
+    icon: WhatsApp,
+  },
+  {
+    name: "X",
+    href: "https://x.com/intent/post?url=",
+    linkTitle: `Share this post on X`,
+    icon: XDark,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/sharing/share-offsite/?url=",
+    linkTitle: `Share this post on LinkedIn`,
+    icon: LinkedIn,
+  },
+] as const;
