@@ -2,7 +2,8 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronRightIcon, Code2 } from "lucide-react";
 
 import type { ExperiencePosition } from "@/lib/types";
-import { MarkdownRenderer } from "./markdown-renderer";
+import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
+import { markdownToHtml } from "@/lib/markdown";
 
 export function ExperiencePositionItem({
   position,
@@ -37,10 +38,8 @@ export function ExperiencePositionItem({
 
         <AccordionPrimitive.Content className="overflow-hidden transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
           {position?.description && (
-            <MarkdownRenderer
-              className="ml-7"
-              content={position?.description}
-            />
+            // <MarkdownRenderer className="ml-7" content={position.description} />
+            <p>{position.description}</p>
           )}
 
           {Array.isArray(position.skills) && position.skills.length > 0 && (
