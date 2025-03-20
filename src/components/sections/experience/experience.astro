@@ -4,7 +4,8 @@ import BoxHeader from "@/components/box/header.astro";
 import BoxTitle from "@/components/box/title.astro";
 import BoxContent from "@/components/box/content.astro";
 
-import { Experiences } from "./experiences";
+import { EXPERIENCES } from "@/lib/constants/experience";
+import ExperienceItem from "./experience-item.astro";
 ---
 
 <Box>
@@ -12,6 +13,10 @@ import { Experiences } from "./experiences";
     <BoxTitle> Experience </BoxTitle>
   </BoxHeader>
   <BoxContent>
-    <Experiences client:load />
+    {
+      EXPERIENCES.map(experience => {
+        return <ExperienceItem experience={experience} />;
+      })
+    }
   </BoxContent>
 </Box>

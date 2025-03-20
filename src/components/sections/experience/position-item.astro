@@ -1,0 +1,68 @@
+---
+import { Code2 } from "lucide-react";
+
+import type { ExperiencePosition } from "@/lib/types";
+import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
+
+interface Props {
+  position: ExperiencePosition;
+}
+
+const { position } = Astro.props;
+---
+
+<div>
+  <div class="block w-full py-1 text-left">
+    <div class="relative z-1 mb-1 flex items-center space-x-3">
+      <Code2 className="size-4 bg-background" />
+
+      <h3
+        class="flex-1 font-black underline-offset-4 group-hover/experience:underline"
+      >
+        {position.title}
+      </h3>
+    </div>
+
+    <div
+      class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground/80"
+    >
+      {
+        position.employmentType && (
+          <>
+            <span>{position.employmentType}</span>
+            <span class="flex h-4 w-px shrink-0 bg-foreground/80" />
+          </>
+        )
+      }
+
+      <span>{position.year}</span>
+    </div>
+  </div>
+
+  <div
+    class="my-4 overflow-hidden transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+  >
+    {
+      position?.description && (
+        <MarkdownRenderer
+          className="ml-7 text-sm leading-7 font-medium"
+          content={position.description}
+        />
+      )
+    }
+
+    {
+      Array.isArray(position.skills) && position.skills.length > 0 && (
+        <div class="justify-startj mt-2 ml-7 flex max-w-full flex-wrap items-center gap-1.5 py-2">
+          {position.skills.map((skill, index) => {
+            return (
+              <p class="min-fit flex shrink-0 items-center rounded-md border border-solid px-2 py-0.5 font-mono text-xs text-foreground">
+                {skill}
+              </p>
+            );
+          })}
+        </div>
+      )
+    }
+  </div>
+</div>
