@@ -25,7 +25,8 @@ export const PROFILE_INFO = {
     },
   ],
   about: `
-I'm a product-minded software engineer passionate about crafting high-quality digital experiences. With expertise in full-stack development and a strong eye for UI/UX, I build performant, pixel-perfect applications that are both beautiful and functional. Always learning, always iterating—let’s build something great.
+I'm a **software engineer** passionate about crafting high-quality digital experiences. With expertise in **full-stack** development and a strong eye for **UI/UX**, I build **performant, pixel-perfect** applications that are both beautiful and functional.  
+Always **learning**, always **iterating**, always pushing boundaries.  
 `,
   avatar: "/images/chanhdai-avatar.jpeg",
   ogImage: "/images/chanhdai-og-image.png",

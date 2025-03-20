@@ -10,4 +10,4 @@ interface Props {
 const { className, content } = Astro.props;
 ---
 
-<p class={cn("prose", className)} set:html={markdownToHtml(content)} />
+<div set:html={markdownToHtml(content, className)} />
