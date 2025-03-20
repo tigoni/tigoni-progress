@@ -1,20 +1,5 @@
 ---
-import { Icons } from "./ui/icons";
-
-const socialLinks = [
-  {
-    icon: Icons.github,
-    url: "https://github.com/Louai-Zokerburg",
-  },
-  {
-    icon: Icons.linkedin,
-    url: "https://www.linkedin.com/in/louai-boumediene-018919262/",
-  },
-  {
-    icon: Icons.x,
-    url: "https://x.com/Louai_Dourov",
-  },
-];
+import { SOCIAL_LINKS } from "@/lib/constants";
 ---
 
 <footer class="w-full border-y border-dashed">
@@ -33,7 +18,7 @@ const socialLinks = [
 
     <div class="flex items-center justify-center gap-4">
       {
-        socialLinks.map(link => (
+        SOCIAL_LINKS.map(link => (
           <a href={link.url}>
             <link.icon className="size-4 duration-150 hover:text-primary" />
           </a>
