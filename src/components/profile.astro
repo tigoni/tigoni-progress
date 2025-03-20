@@ -6,6 +6,9 @@ import BoxContent from "@/components/box/content.astro";
 
 import { PROFILE_INFO } from "@/lib/constants/profile";
 import { FlipEffect } from "@/components/ui/flip-effect";
+import { CodeXml, MapPin } from "lucide-react";
+
+import { Icons } from "@/components/ui/icons";
 ---
 
 <div class="screen-line-after relative flex border-x border-dashed">
@@ -44,11 +47,58 @@ import { FlipEffect } from "@/components/ui/flip-effect";
 </div>
 
 <Box>
-  <BoxContent>
-    <p>Hello there</p>
-    <p>Hello there</p>
-    <p>Hello there</p>
-    <p>Hello there</p>
-    <p>Hello there</p>
+  <BoxContent className="space-y-3">
+    <span class="flex items-center justify-start gap-2">
+      <CodeXml className="size-4" />
+      Software Engineer at
+      <a
+        href="https://big-mama.io"
+        target="_blank"
+        class="underline underline-offset-4"
+      >
+        BIGMama Technology
+      </a>
+    </span>
+
+    <span class="flex items-center justify-start gap-2">
+      <MapPin className="size-4" />
+      Algiers, Algeria
+    </span>
+
+    <span class="flex items-center justify-start gap-2">
+      <Icons.x className="size-4" />
+      Follow me on
+      <a
+        href="https://x.com/Louai_Dourov"
+        target="_blank"
+        class="underline underline-offset-4"
+      >
+        Twitter
+      </a>
+    </span>
+
+    <span class="flex items-center justify-start gap-2">
+      <Icons.linkedin className="size-4" />
+      Let's connect on
+      <a
+        href="https://www.linkedin.com/in/louai-boumediene-018919262/"
+        class="underline underline-offset-4"
+        target="_blank"
+      >
+        LinkedIn
+      </a>
+    </span>
+
+    <span class="flex items-center justify-start gap-2">
+      <Icons.github className="size-4" />
+      Check out my repos on
+      <a
+        href="https://github.com/Louai-Zokerburg"
+        class="underline underline-offset-4"
+        target="_blank"
+      >
+        GitHub
+      </a>
+    </span>
   </BoxContent>
 </Box>
