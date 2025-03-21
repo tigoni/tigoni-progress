@@ -113,26 +113,37 @@
   --chart-5: 340 75% 55%;
 }
 
-
-
-
-
 * {
   @apply border-border border-dashed;
+
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
 }
 
 html {
   @apply scroll-smooth;
+  font-family: Geist Sans;
 }
 
 body {
   @apply overscroll-none bg-background text-foreground;
-  /* font-feature-settings: "rlig" 1, "calt" 1; */
   font-synthesis-weight: none;
   text-rendering: optimizeLegibility;
 }
 
-/* Custom scrollbar styling. Thanks @pranathiperii. */
+h1,
+h2,
+h3 {
+  font-family: Roboto Condensed;
+}
+
+pre {
+  font-family: JetBrains Mono;
+}
+
+
+
+/* Custom scrollbar styling */
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -144,11 +155,6 @@ body {
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--border));
   border-radius: 5px;
-}
-
-* {
-  scrollbar-width: thin;
-  scrollbar-color: hsl(var(--border)) transparent;
 }
 
 @utility screen-line-before {
