@@ -3,12 +3,12 @@ import Box from "@/components/box/index.astro";
 import BoxHeader from "@/components/box/header.astro";
 import BoxTitle from "@/components/box/title.astro";
 
-import { Projects } from "./projects";
+import Projects from "./projects.astro";
 ---
 
 <Box>
   <BoxHeader>
     <BoxTitle> Projects </BoxTitle>
   </BoxHeader>
-  <Projects client:load />
+  <Projects />
 </Box>

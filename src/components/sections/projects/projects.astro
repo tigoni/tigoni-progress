@@ -1,0 +1,6 @@
+---
+import { PROJECTS } from "@/lib/constants/projects";
+import ProjectItem from "@/components/sections/projects/project-item.astro";
+---
+
+{PROJECTS.map(item => <ProjectItem project={item} />)}

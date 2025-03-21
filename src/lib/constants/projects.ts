@@ -13,10 +13,11 @@ export const PROJECTS: Project[] = [
       "shadcn/ui",
       "Strapi 5",
       "VNPAY-QR",
-      "Docker",
       "Docker Compose",
-      "NGINX",
     ],
+    description:
+      "chanhdai.com is my portfolio website, showcasing my work and experience as a Software Developer & UI/UX Designer."
+
   },
   {
     id: "portfolio-website",
@@ -33,7 +34,7 @@ export const PROJECTS: Project[] = [
       "Vercel",
     ],
     description:
-      "chanhdai.com is my portfolio website, showcasing my work and experience as a Software Developer & UI/UX Designer.\n- Elegant & Minimalistic UI: Clean and modern design\n- Dark Mode: Supports light and dark themes for a better user experience\n- vCard Integration: Digital business card with contact details\n- SEO Optimization: JSON-LD schema, sitemap, robots\n- Email Protection: Obfuscation to prevent spam\n- [Next.js 15](https://nextjs.org/): Latest React framework for optimized performance and scalability\n- [Tailwind CSS v4](https://tailwindcss.com/): Modern utility-first CSS framework for styling\n\nBlog Features:\n- MDX & Markdown support\n- [Syntax Highlighting](https://chanhdai.com/blog/writing-effect-inspired-by-apple) for better readability\n - [RSS Feed](https://chanhdai.com/rss) for easy content distribution\n- Dynamic OG Images for rich previews",
+      "chanhdai.com is my portfolio website, showcasing my work and experience as a Software Developer & UI/UX Designer."
   },
   {
     id: "zadark",
@@ -48,7 +49,7 @@ export const PROJECTS: Project[] = [
       "Docusaurus 3",
     ],
     description:
-      "ZaDark brings Dark Mode to Zalo's Web and PC interfaces, designed to help reduce eye strain during extended use. Since its launch in January 2022, ZaDark has garnered over 80,000 downloads on SourceForge and has more than 10,000 active users using the extension distributed through the Chrome Web Store.\n- Bronze Medal | 10th Design, Manufacturing, and Application Award 2022 (organized by Ho Chi Minh City Youth Union)\n- Community Choice award by SourceForge\n- Favorite award by SourceForge\n- Rising Star award by SourceForge",
+      "ZaDark brings Dark Mode to Zalo's Web and PC interfaces, designed to help reduce eye strain during extended use. Since its"
   },
   {
     id: "qabox",
