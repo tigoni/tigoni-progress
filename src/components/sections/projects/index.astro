@@ -2,13 +2,16 @@
 import Box from "@/components/box/index.astro";
 import BoxHeader from "@/components/box/header.astro";
 import BoxTitle from "@/components/box/title.astro";
+import { getCollection } from "astro:content";
+import ProjectItem from "./project-item.astro";
 
-import Projects from "./projects.astro";
+const projects = await getCollection("projects");
 ---
 
 <Box>
   <BoxHeader>
     <BoxTitle> Projects </BoxTitle>
   </BoxHeader>
-  <Projects />
+
+  {projects.map(item => <ProjectItem project={item} />)}
 </Box>

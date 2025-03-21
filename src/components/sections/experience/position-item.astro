@@ -3,6 +3,7 @@ import { Code2 } from "lucide-react";
 
 import type { ExperiencePosition } from "@/lib/types";
 import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
+import Badge from "@/components/ui/badge.astro";
 
 interface Props {
   position: ExperiencePosition;
@@ -55,11 +56,7 @@ const { position } = Astro.props;
       Array.isArray(position.skills) && position.skills.length > 0 && (
         <div class="justify-startj mt-2 ml-7 flex max-w-full flex-wrap items-center gap-1.5 py-2">
           {position.skills.map((skill, index) => {
-            return (
-              <p class="min-fit flex shrink-0 items-center rounded-md border border-solid px-2 py-0.5 font-mono text-xs text-foreground">
-                {skill}
-              </p>
-            );
+            return <Badge>{skill}</Badge>;
           })}
         </div>
       )
