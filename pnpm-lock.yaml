@@ -14,11 +14,14 @@ importers:
       '@astrojs/react':
         specifier: ^4.2.0
         version: 4.2.1(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(jiti@2.4.2)(lightningcss@1.29.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@fontsource/geist':
+      '@fontsource/geist-sans':
         specifier: ^5.2.5
         version: 5.2.5
       '@fontsource/jetbrains-mono':
         specifier: ^5.1.2
+        version: 5.2.5
+      '@fontsource/roboto-condensed':
+        specifier: ^5.2.5
         version: 5.2.5
       '@radix-ui/react-accordion':
         specifier: ^1.2.3
@@ -416,11 +419,14 @@ packages:
     resolution: {integrity: sha512-JubJ5B2pJ4k4yGxaNLdbjrnk9d/iDz6/q8wOilpIowd6PJPgaxCuHBnBszq7Ce2TyMrywm5r4PnKm6V3iiZF+g==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fontsource/geist@5.2.5':
-    resolution: {integrity: sha512-QDXk3+LZ7lMZYaqcjY+J0rKSU2HLojcNgryyVT6JOC0Rqx4rxb/YFA39msKlqOR6u992GDZOnsEzULVHB4KmoQ==}
+  '@fontsource/geist-sans@5.2.5':
+    resolution: {integrity: sha512-anllOHyJbElRs9fV15TeDRqAeb1IKm4bSknPl6ZMoyPTx1BBy7logudcUwpNjmQLkzn4Q0JGQLRCUKJYoyST6A==}
 
   '@fontsource/jetbrains-mono@5.2.5':
     resolution: {integrity: sha512-TPZ9b/uq38RMdrlZZkl0RwN8Ju9JxuqMETrw76pUQFbGtE1QbwQaNsLlnUrACNNBNbd0NZRXiJJSkC8ajPgbew==}
+
+  '@fontsource/roboto-condensed@5.2.5':
+    resolution: {integrity: sha512-FVubmVJpZ2js2+nCBEA3IOHhAgWmZ2/YKvTae0X25jlxbd85umOOvUIY6FL6OMpUvIgvwOImS9l0GJjzEPk+mg==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -3126,9 +3132,11 @@ snapshots:
       '@eslint/core': 0.12.0
       levn: 0.4.1
 
-  '@fontsource/geist@5.2.5': {}
+  '@fontsource/geist-sans@5.2.5': {}
 
   '@fontsource/jetbrains-mono@5.2.5': {}
+
+  '@fontsource/roboto-condensed@5.2.5': {}
 
   '@humanfs/core@0.19.1': {}
 

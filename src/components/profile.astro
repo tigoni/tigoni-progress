@@ -6,12 +6,12 @@ import BoxContent from "@/components/box/content.astro";
 
 import { PROFILE_INFO } from "@/lib/constants/profile";
 import { FlipEffect } from "@/components/ui/flip-effect";
-import { CodeXml, MapPin } from "lucide-react";
+import { Briefcase, CodeXml, MapPin } from "lucide-react";
 
 import { Icons } from "@/components/ui/icons";
 ---
 
-<div class="screen-line-after relative flex border-x border-dashed">
+<div class="relative flex border-x">
   <div class="shrink-0 border-r border-dashed">
     <div class="relative z-1 mx-0.5 my-1">
       <LouaiAvatar
@@ -22,24 +22,20 @@ import { Icons } from "@/components/ui/icons";
 
   <div class="flex flex-1 flex-col">
     <div class="flex grow items-end pb-1 pl-4">
-      <div
-        class="line-clamp-1 font-mono text-xs text-muted-foreground select-none"
-      >
+      <div class="line-clamp-1 font-mono text-xs text-muted-foreground">
         Coding, Creativity, Coffee...
       </div>
     </div>
 
-    <div class="border-t border-dashed">
-      <h1
-        class="font-heading flex items-center gap-x-2 pl-4 text-2xl font-black"
-      >
+    <div class="border-t">
+      <h1 class="flex items-center gap-x-2 pl-4 text-2xl font-black">
         {PROFILE_INFO.displayName}
-        <span class="relative top-px text-blue-400">
+        <span class="relative top-px text-blue-500">
           <VerifiedIcon />
         </span>
       </h1>
 
-      <div class="h-12 border-t border-dashed py-1 pl-4 sm:h-auto">
+      <div class="h-12 border-t py-1 pl-4 sm:h-auto">
         <FlipEffect client:load sentences={PROFILE_INFO.flipSentences} />
       </div>
     </div>
@@ -61,8 +57,15 @@ import { Icons } from "@/components/ui/icons";
     </span>
 
     <span class="flex items-center justify-start gap-2">
-      <MapPin className="size-4" />
-      Algiers, Algeria
+      <Briefcase className="size-4" />
+      Take a look at my
+      <a
+        href="https://x.com/Louai_Dourov"
+        target="_blank"
+        class="underline underline-offset-4"
+      >
+        Resume
+      </a>
     </span>
 
     <span class="flex items-center justify-start gap-2">

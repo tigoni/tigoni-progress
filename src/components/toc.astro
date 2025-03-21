@@ -9,9 +9,9 @@ const { headings } = Astro.props;
 ---
 
 <div
-  class="sticky top-18 mt-4 ml-4 hidden max-h-fit min-w-fit flex-col gap-y-3 rounded-lg lg:flex"
+  class="sticky top-18 mt-4 ml-4 hidden max-h-fit min-w-fit flex-col gap-y-3 lg:flex"
 >
-  <h3 class:list="text-lg">On This Page</h3>
+  <h3 class:list="text-xl">On This Page</h3>
   {
     headings
       .filter(({ depth }) => depth < 3)
@@ -19,7 +19,7 @@ const { headings } = Astro.props;
         <a
           href={`#${slug}`}
           class:list={[
-            "text-xs font-normal text-foreground/70 no-underline duration-75 hover:text-foreground",
+            "text-sm font-normal text-foreground/70 no-underline duration-75 hover:text-foreground",
           ]}
         >
           • {text}
