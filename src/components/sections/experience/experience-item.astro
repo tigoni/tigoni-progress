@@ -9,13 +9,11 @@ interface Props {
 const { experience } = Astro.props;
 ---
 
-<div
-  class="relative space-y-4 py-4 after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-border"
->
+<div class="screen-line-after relative space-y-4 py-4">
   <div class="flex items-center space-x-4 px-2">
-    <span class="size-2 rounded-full bg-border"></span>
+    <span class="size-2 rounded-full bg-foreground/60"></span>
 
-    <h3 class="text-lg font-black">
+    <h3 class="text-xl font-black">
       {experience.company}
     </h3>
   </div>

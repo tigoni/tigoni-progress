@@ -2,8 +2,8 @@
 import { Code2 } from "lucide-react";
 
 import type { ExperiencePosition } from "@/lib/types";
-import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
 import Badge from "@/components/ui/badge.astro";
+import { markdownToHtml } from "@/lib/markdown";
 
 interface Props {
   position: ExperiencePosition;
@@ -13,44 +13,28 @@ const { position } = Astro.props;
 ---
 
 <div>
-  <div class="block w-full py-1 text-left">
+  <div class="block w-full text-left">
     <div class="relative z-1 mb-1 flex items-center space-x-3">
       <Code2 className="size-4 bg-background" />
 
-      <h3
-        class="flex-1 font-black underline-offset-4 group-hover/experience:underline"
-      >
+      <h3 class="text-base font-black underline-offset-4">
         {position.title}
       </h3>
     </div>
 
-    <div
-      class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground/80"
+    <span
+      class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground"
     >
-      {
-        position.employmentType && (
-          <>
-            <span>{position.employmentType}</span>
-            <span class="flex h-4 w-px shrink-0 bg-foreground/80" />
-          </>
-        )
-      }
-
-      <span>{position.year}</span>
-    </div>
+      {position.year}
+    </span>
   </div>
 
   <div
     class="my-4 overflow-hidden transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
   >
-    {
-      position?.description && (
-        <MarkdownRenderer
-          className="ml-7 text-sm leading-7 font-medium"
-          content={position.description}
-        />
-      )
-    }
+    <div
+      set:html={markdownToHtml(position.description, "ml-7 text-sm leading-7")}
+    />
 
     {
       Array.isArray(position.skills) && position.skills.length > 0 && (
