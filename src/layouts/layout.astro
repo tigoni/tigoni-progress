@@ -22,6 +22,7 @@ export interface Props {
   profile?: string;
   description?: string;
   ogImage?: string;
+  pageType?: string;
   canonicalURL?: string;
 }
 
@@ -31,10 +32,11 @@ const {
   profile = SITE.profile,
   description = SITE.desc,
   ogImage = SITE.ogImage,
+  pageType = SITE.pageType,
   canonicalURL = new URL(Astro.url.pathname, Astro.url),
 } = Astro.props;
 
-const socialImageURL = new URL(ogImage ?? SITE.ogImage ?? "og.png", Astro.url);
+const socialImageURL = new URL(ogImage ?? SITE.ogImage, Astro.url).toString();
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -97,12 +99,13 @@ const structuredData = {
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={pageType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:url" content={canonicalURL} />
 
-    <!-- Twitter -->
+    <!-- X / Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
