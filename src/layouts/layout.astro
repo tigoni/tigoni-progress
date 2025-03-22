@@ -36,7 +36,7 @@ const {
   canonicalURL = new URL(Astro.url.pathname, Astro.url),
 } = Astro.props;
 
-const socialImageURL = new URL(ogImage ?? SITE.ogImage, Astro.url).toString();
+const socialImageURL = new URL(ogImage ?? SITE.ogImage, Astro.site).toString();
 
 const structuredData = {
   "@context": "https://schema.org",
