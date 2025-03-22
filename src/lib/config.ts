@@ -1,14 +1,10 @@
 export const SITE = {
-  website: "https://louai.dev/",
   author: "Louai Boumediene",
-  profile: "https://louai.dev/",
-  desc: "This is my personal space",
+  profile: "https://louai.site",
+  desc: "My digital space, projects, insights, and thoughts on software engineering.",
   title: "Louai Boumediene",
-  ogImage: "louai-dev-og.jpg",
-  lightAndDarkMode: true,
-  postPerIndex: 4,
+  ogImage: "louai-og.jpg",
+  keywords:
+    "ncdai, nguyenchanhdai, nguyen chanh dai, chanhdai, chanh dai, iamncdai, quaric, zadark, nguyễn chánh đại, chánh đại",
   postPerPage: 6,
-  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  showArchives: true,
-  showBackButton: true,
 } as const;

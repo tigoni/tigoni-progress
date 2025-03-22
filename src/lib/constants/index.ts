@@ -2,11 +2,6 @@ import LinkedinIcon from '@/components/ui/icons/linkedin.astro'
 import XIcon from '@/components/ui/icons/x.astro'
 import GithubIcon from '@/components/ui/icons/github.astro'
 
-export const LOCALE = {
-  lang: "en",
-  langTag: ["en-EN"],
-} as const;
-
 export const NAV_LINKS = [
   {
     label: "Home",
