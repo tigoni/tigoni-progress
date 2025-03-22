@@ -1,12 +1,11 @@
 ---
 import LouaiAvatar from "@/components/ui/louai-avatar.astro";
-import VerifiedIcon from "@/components/ui/verified.astro";
 import Box from "@/components/box/index.astro";
 import BoxContent from "@/components/box/content.astro";
 
 import { PROFILE_INFO } from "@/lib/constants/profile";
 import { FlipEffect } from "@/components/ui/flip-effect";
-import { Briefcase, CodeXml, MapPin } from "lucide-react";
+import { Briefcase, CodeXml } from "lucide-react";
 
 import { Icons } from "@/components/ui/icons";
 ---
@@ -31,7 +30,7 @@ import { Icons } from "@/components/ui/icons";
       <h1 class="flex items-center gap-x-2 pl-4 text-2xl font-black">
         {PROFILE_INFO.displayName}
         <span class="relative top-px text-blue-500">
-          <VerifiedIcon />
+          <Icons.verified />
         </span>
       </h1>
 
