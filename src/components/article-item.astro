@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { NotebookPen } from "lucide-react";
+import { ChevronRightIcon, NotebookPen } from "lucide-react";
 import getReadingTime from "reading-time";
 
 interface Props {
@@ -23,11 +23,19 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
   <NotebookPen className="mx-5 size-5 shrink-0 text-muted-foreground" />
 
   <div
-    class="flex flex-1 flex-col items-start justify-center gap-2 border-l p-4"
+    class="flex flex-1 flex-col items-start justify-center gap-3 border-l p-4"
   >
-    <h3 class="text-lg font-semibold underline-offset-6 group-hover:underline">
-      {article.data.title}
-    </h3>
+    <div class="flex w-full items-center justify-between text-left select-none">
+      <h3
+        class="text-lg font-semibold underline-offset-6 group-hover:underline"
+      >
+        {article.data.title}
+      </h3>
+
+      <ChevronRightIcon
+        className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1"
+      />
+    </div>
 
     <ul class="flex items-center justify-start gap-x-4">
       {

@@ -80,7 +80,7 @@ const { page } = Astro.props;
       {page.data.map(article => <ArticleItem article={article} />)}
     </ul>
 
-    <div class="border-t">
+    <div class="border-t py-2">
       <Pagination page={page} />
     </div>
   </Box>

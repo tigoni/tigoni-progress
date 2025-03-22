@@ -18,9 +18,11 @@ const { project } = Astro.props;
 >
   <FolderCodeIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
 
-  <div class="group flex w-full cursor-pointer flex-col gap-y-4 border-l p-4">
+  <div class="group flex w-full cursor-pointer flex-col gap-y-3 border-l p-4">
     <div class="flex w-full items-center justify-between text-left select-none">
-      <h3 class="text-lg font-bold text-balance group-hover:underline">
+      <h3
+        class="text-lg font-semibold underline-offset-6 group-hover:underline"
+      >
         {project.data.name}
       </h3>
 

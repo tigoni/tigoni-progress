@@ -24,6 +24,7 @@ const { page } = Astro.props;
         ariaLabel="Previous"
       >
         <ArrowLeft className="inline-block" />
+        Previous
       </LinkButton>
       <span class="font-bold">{page.currentPage} </span>/ {page.lastPage}
       <LinkButton
@@ -31,6 +32,7 @@ const { page } = Astro.props;
         href={page.url.next as string}
         ariaLabel="Next"
       >
+        Next
         <ArrowRight className="inline-block" />
       </LinkButton>
     </nav>
