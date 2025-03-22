@@ -4,7 +4,6 @@ import Box from "@/components/box/index.astro";
 import BoxContent from "@/components/box/content.astro";
 
 import { PROFILE_INFO } from "@/lib/constants/profile";
-import { FlipEffect } from "@/components/ui/flip-effect";
 import { Briefcase, CodeXml } from "lucide-react";
 
 import VerifiedIcon from "@/components/ui/icons/verified.astro";
@@ -35,8 +34,10 @@ import LinkedinIcon from "@/components/ui/icons/linkedin.astro";
         <VerifiedIcon class="size-4 text-blue-500" />
       </h1>
 
-      <div class="h-12 border-t py-1 pl-4 sm:h-auto">
-        <FlipEffect client:load sentences={PROFILE_INFO.flipSentences} />
+      <div class="border-t py-1 pl-4">
+        <h3 class="text-sm !font-normal">
+          Software Engineer / Full-stack Developer
+        </h3>
       </div>
     </div>
   </div>
