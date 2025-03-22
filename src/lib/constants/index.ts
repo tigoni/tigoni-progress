@@ -1,5 +1,6 @@
-import { Icons } from "@/components/ui/icons";
-import { LinkedIn, WhatsApp, XDark } from "developer-icons";
+import LinkedinIcon from '@/components/ui/icons/linkedin.astro'
+import XIcon from '@/components/ui/icons/x.astro'
+import GithubIcon from '@/components/ui/icons/github.astro'
 
 export const LOCALE = {
   lang: "en",
@@ -23,37 +24,15 @@ export const NAV_LINKS = [
 
 export const SOCIAL_LINKS = [
   {
-    icon: Icons.github,
+    icon: GithubIcon,
     url: "https://github.com/Louai-Zokerburg",
   },
   {
-    icon: Icons.linkedin,
+    icon: LinkedinIcon,
     url: "https://www.linkedin.com/in/louai-boumediene-018919262/",
   },
   {
-    icon: Icons.x,
+    icon: XIcon,
     url: "https://x.com/Louai_Dourov",
   },
 ];
-
-export const SHARE_LINKS = [
-  {
-    name: "WhatsApp",
-    href: "https://wa.me/?text=",
-    linkTitle: `Share this post via WhatsApp`,
-    icon: WhatsApp,
-  },
-  {
-    name: "X",
-    href: "https://x.com/intent/post?url=",
-    linkTitle: `Share this post on X`,
-    icon: XDark,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/sharing/share-offsite/?url=",
-    linkTitle: `Share this post on LinkedIn`,
-    icon: LinkedIn,
-  },
-] as const;
-

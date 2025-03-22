@@ -19,7 +19,9 @@ import {
   TypeScript,
 } from "developer-icons";
 
-import { Icons } from "@/components/ui/icons";
+import HonoIcon from '@/components/ui/icons/hono.astro'
+import FastapiIcon from '@/components/ui/icons/fastapi.astro'
+
 
 export const TECH_STACK = [
   // Programming Languages
@@ -100,12 +102,12 @@ export const TECH_STACK = [
   {
     title: "FastAPI",
     href: "https://fastapi.tiangolo.com/",
-    icon: Icons.fastapi,
+    icon: FastapiIcon
   },
   {
     title: "Honojs",
     href: "https://hono.dev/",
-    icon: Icons.hono,
+    icon: HonoIcon
   },
 
   // Databases & Caching
