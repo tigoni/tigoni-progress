@@ -29,6 +29,7 @@ const rendered = await render(post);
   title={post.data.title}
   date={post.data.pubDatetime}
   readTime={getReadingTime(post.body!).text}
+  image={post.data.image}
 >
   <rendered.Content />
 </ArticleLayout>

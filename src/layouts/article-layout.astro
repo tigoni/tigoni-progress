@@ -21,9 +21,10 @@ interface Props {
   readTime: string;
   date: Date;
   headings: MarkdownHeading[];
+  image?: string;
 }
 
-const { title, readTime, date, headings } = Astro.props;
+const { title, readTime, date, headings, image } = Astro.props;
 
 const formattedDate = new Intl.DateTimeFormat("en-GB", {
   day: "2-digit",
@@ -34,7 +35,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
   .replace(/\//g, ".");
 ---
 
-<Layout title={`${title} | Louai.b`}>
+<Layout title={`${title}`} ogImage={image}>
   <Navbar className="top-1" />
 
   <main aria-label="Main content" class="min-h-screen">
