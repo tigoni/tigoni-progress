@@ -16,13 +16,13 @@ const isActive = (path: string) => {
 };
 ---
 
-<div class="hidden items-center justify-center gap-6 lg:flex">
+<div class="flex items-center justify-center gap-4">
   {
     NAV_LINKS.map(link => (
       <a
         href={link.href}
         class={cn(
-          "group relative flex flex-col items-center justify-center text-sm font-medium text-foreground/70 duration-150 hover:text-primary"
+          "group relative flex flex-col items-center justify-center text-xs font-medium text-foreground/70 duration-150 hover:text-primary lg:text-sm"
         )}
       >
         <span class={cn("mb", isActive(link.href) && "text-primary")}>
@@ -31,7 +31,7 @@ const isActive = (path: string) => {
 
         <span
           class={cn(
-            "absolute -bottom-1 h-[1px] rounded-full bg-primary transition-all duration-150",
+            "absolute -bottom-0.5 h-[1px] rounded-full bg-primary transition-all duration-150",
             isActive(link.href) ? "w-full" : "w-0",
             "group-hover:w-full"
           )}

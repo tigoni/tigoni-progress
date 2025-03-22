@@ -12,7 +12,7 @@ import ExperienceItem from "./experience-item.astro";
   <BoxHeader>
     <BoxTitle> Experience </BoxTitle>
   </BoxHeader>
-  <BoxContent>
+  <BoxContent className="px-0">
     {
       EXPERIENCES.map(experience => {
         return <ExperienceItem experience={experience} />;
