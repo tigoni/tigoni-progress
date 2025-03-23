@@ -29,7 +29,11 @@ const { title, description, backLink } = Astro.props;
     <Pattern className="h-20">
       {
         backLink && (
-          <LinkBtn className="absolute bottom-0 left-2 z-1" href={backLink}>
+          <LinkBtn
+            ariaLabel="Back link"
+            className="absolute bottom-0 left-2 z-1"
+            href={backLink}
+          >
             <ArrowLeft />
           </LinkBtn>
         )

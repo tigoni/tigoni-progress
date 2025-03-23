@@ -41,7 +41,11 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
   <main aria-label="Main content" class="min-h-screen">
     <div class="mx-auto max-w-3xl">
       <Pattern className="h-16">
-        <LinkBtn className="absolute bottom-0 left-2 z-1" href="/articles">
+        <LinkBtn
+          ariaLabel="Back link"
+          className="absolute bottom-0 left-2 z-1"
+          href="/articles"
+        >
           <ArrowLeft />
         </LinkBtn>
       </Pattern>

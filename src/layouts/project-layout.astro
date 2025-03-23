@@ -34,20 +34,28 @@ const { title, technologies, preview, sourceCode } = Astro.props;
   <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
     <Pattern className="h-16">
       <div class="z-1 mx-2 mt-auto flex w-full items-center justify-between">
-        <LinkBtn href="/projects">
+        <LinkBtn ariaLabel="Back btn" href="/projects">
           <ArrowLeft />
         </LinkBtn>
         <div>
           {
             sourceCode && (
-              <LinkBtn target="_blank" href="https://louai.site">
+              <LinkBtn
+                ariaLabel="Source code"
+                target="_blank"
+                href="https://louai.site"
+              >
                 <Github class="size-4" />
               </LinkBtn>
             )
           }
           {
             preview && (
-              <LinkBtn target="_blank" href="https://louai.site">
+              <LinkBtn
+                ariaLabel="Deployed App"
+                target="_blank"
+                href="https://louai.site"
+              >
                 <ExternalLink className="size-4" />
               </LinkBtn>
             )

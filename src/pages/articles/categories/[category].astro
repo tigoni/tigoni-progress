@@ -35,10 +35,10 @@ const description = `Exploring ${category} insights, lessons, and discoveries fr
     <BoxHeader>
       <BoxTitle>Articles</BoxTitle>
     </BoxHeader>
-    <ul
+    <div
       class="flex w-full flex-col items-start justify-start divide-y divide-border"
     >
       {categoryArticles.map(article => <ArticleItem article={article} />)}
-    </ul>
+    </div>
   </Box>
 </PageLayout>
