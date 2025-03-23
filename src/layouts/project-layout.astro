@@ -75,15 +75,15 @@ const { title, technologies, preview, sourceCode } = Astro.props;
     </Box>
 
     <Pattern />
-  </main>
 
-  <Box className="min-w-full">
-    <BoxContent className="pt-8">
-      <article class="prose min-w-full">
-        <slot />
-      </article>
-    </BoxContent>
-  </Box>
+    <Box className="min-w-full">
+      <BoxContent className="pt-8">
+        <article class="prose min-w-full">
+          <slot />
+        </article>
+      </BoxContent>
+    </Box>
+  </main>
 </Layout>
 
 <Footer />
