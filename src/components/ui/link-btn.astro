@@ -6,9 +6,10 @@ export interface Props {
   ariaLabel?: string;
   disabled?: boolean;
   className?: string;
+  target?: string;
 }
 
-const { href, ariaLabel, className, disabled = false } = Astro.props;
+const { href, ariaLabel, target, className, disabled = false } = Astro.props;
 ---
 
 {
@@ -26,6 +27,7 @@ const { href, ariaLabel, className, disabled = false } = Astro.props;
   ) : (
     <a
       {href}
+      {target}
       class:list={[
         buttonVariants({ size: "sm", variant: "ghost" }),
         "!rounded-full",

@@ -26,6 +26,8 @@ const rendered = await render(project);
 <ProjectLayout
   title={project.data.name}
   technologies={project.data.technologies}
+  sourceCode={project.data.sourceCode}
+  preview={project.data.preview}
 >
   <rendered.Content />
 </ProjectLayout>
