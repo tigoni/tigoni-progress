@@ -33,11 +33,11 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
       </h3>
 
       <ChevronRightIcon
-        className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1"
+        className="size-4 shrink-0 text-sm text-muted-foreground transition-transform duration-150 group-hover:translate-x-1"
       />
     </div>
 
-    <ul class="flex items-center justify-start gap-x-4">
+    <ul class="flex flex-wrap items-center justify-start gap-x-4">
       {
         article.data.tags.map(tag => (
           <li class="text-xs font-semibold">#{tag}</li>
