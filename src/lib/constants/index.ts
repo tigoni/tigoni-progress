@@ -19,14 +19,17 @@ export const NAV_LINKS = [
 
 export const SOCIAL_LINKS = [
   {
+    name: 'Github',
     icon: GithubIcon,
     url: "https://github.com/Louai-Zokerburg",
   },
   {
+    name: 'Linkedin',
     icon: LinkedinIcon,
     url: "https://www.linkedin.com/in/louai-boumediene-018919262/",
   },
   {
+    name: 'X',
     icon: XIcon,
     url: "https://x.com/Louai_Dourov",
   },
