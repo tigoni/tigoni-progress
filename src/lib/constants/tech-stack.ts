@@ -17,6 +17,7 @@ import {
   ShadcnUI,
   TailwindCSS,
   TypeScript,
+  Appwrite
 } from "developer-icons";
 
 import HonoIcon from '@/components/ui/icons/hono.astro'
@@ -108,6 +109,11 @@ export const TECH_STACK = [
     title: "Honojs",
     href: "https://hono.dev/",
     icon: HonoIcon
+  },
+  {
+    title: "Appwrite",
+    href: "https://appwrite.io",
+    icon: Appwrite
   },
 
   // Databases & Caching
