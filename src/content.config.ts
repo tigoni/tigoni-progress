@@ -24,7 +24,7 @@ const projects = defineCollection({
       name: z.string(),
       technologies: z.array(z.string()),
       description: z.string(),
-      date: z.string(),
+      image: z.string().optional(),
       sourceCode: z.string().optional(),
       preview: z.string().optional(),
       type: z.union([
