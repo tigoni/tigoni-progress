@@ -43,7 +43,7 @@ const { title, technologies, preview, sourceCode } = Astro.props;
               <LinkBtn
                 ariaLabel="Source code"
                 target="_blank"
-                href="https://louai.site"
+                href={sourceCode}
               >
                 <Github class="size-4" />
               </LinkBtn>
@@ -51,11 +51,7 @@ const { title, technologies, preview, sourceCode } = Astro.props;
           }
           {
             preview && (
-              <LinkBtn
-                ariaLabel="Deployed App"
-                target="_blank"
-                href="https://louai.site"
-              >
+              <LinkBtn ariaLabel="Deployed App" target="_blank" href={preview}>
                 <ExternalLink className="size-4" />
               </LinkBtn>
             )
