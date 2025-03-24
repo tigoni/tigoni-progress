@@ -4,12 +4,10 @@ import {
   Figma,
   Framer,
   Git,
-  JavaScript,
   MongoDB,
   NextJs,
   NodeJs,
   Python,
-  RadixUI,
   React,
   ReactQuery,
   Redis,
@@ -17,7 +15,8 @@ import {
   ShadcnUI,
   TailwindCSS,
   TypeScript,
-  Appwrite
+  Appwrite,
+  Astro
 } from "developer-icons";
 
 import HonoIcon from '@/components/ui/icons/hono.astro'
@@ -30,11 +29,6 @@ export const TECH_STACK = [
     title: "TypeScript",
     href: "https://www.typescriptlang.org/",
     icon: TypeScript,
-  },
-  {
-    title: "JavaScript",
-    href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    icon: JavaScript,
   },
   {
     title: "Python",
@@ -52,6 +46,11 @@ export const TECH_STACK = [
     title: "Next.js",
     href: "https://nextjs.org/",
     icon: NextJs,
+  },
+  {
+    title: "Astro.js",
+    href: "https://astro.build/",
+    icon: Astro,
   },
   {
     title: "Tailwind CSS",
@@ -76,11 +75,6 @@ export const TECH_STACK = [
     title: "shadcn/ui",
     href: "https://ui.shadcn.com/",
     icon: ShadcnUI,
-  },
-  {
-    title: "Radix UI",
-    href: "https://www.radix-ui.com/",
-    icon: RadixUI,
   },
   {
     title: "Motion",
