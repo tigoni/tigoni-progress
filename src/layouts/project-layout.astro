@@ -23,12 +23,13 @@ interface Props {
   technologies: string[];
   sourceCode?: string;
   preview?: string;
+  image?: string;
 }
 
-const { title, technologies, preview, sourceCode } = Astro.props;
+const { title, technologies, preview, sourceCode, image } = Astro.props;
 ---
 
-<Layout title={`${title}`}>
+<Layout title={`${title}`} ogImage={image}>
   <Navbar />
 
   <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
