@@ -10,6 +10,7 @@ import "@fontsource/roboto-condensed/400.css";
 import "@fontsource/jetbrains-mono/400.css";
 
 import { ClientRouter } from "astro:transitions";
+import Analytics from "@vercel/analytics/astro";
 
 import { SITE } from "@/lib/config";
 
@@ -126,5 +127,6 @@ const structuredData = {
   <body class="relative min-h-screen overflow-x-hidden">
     <slot />
     <BackToTop />
+    <Analytics />
   </body>
 </html>
