@@ -7,16 +7,24 @@ export interface Props {
   disabled?: boolean;
   className?: string;
   target?: string;
+  variant?: "default" | "ghost" | "secondary";
 }
 
-const { href, ariaLabel, target, className, disabled = false } = Astro.props;
+const {
+  href,
+  ariaLabel,
+  target,
+  className,
+  disabled = false,
+  variant = "ghost",
+} = Astro.props;
 ---
 
 {
   disabled ? (
     <span
       class:list={[
-        buttonVariants({ size: "sm", variant: "ghost" }),
+        buttonVariants({ size: "sm", variant }),
         "rounded-full text-muted-foreground hover:bg-transparent hover:text-muted-foreground [&_svg]:size-4",
         className,
       ]}
@@ -29,7 +37,7 @@ const { href, ariaLabel, target, className, disabled = false } = Astro.props;
       {href}
       {target}
       class:list={[
-        buttonVariants({ size: "sm", variant: "ghost" }),
+        buttonVariants({ size: "sm", variant }),
         "!rounded-full",
         className,
       ]}
