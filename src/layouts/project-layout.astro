@@ -24,12 +24,14 @@ interface Props {
   sourceCode?: string;
   preview?: string;
   image?: string;
+  description: string;
 }
 
-const { title, technologies, preview, sourceCode, image } = Astro.props;
+const { title, technologies, description, preview, sourceCode, image } =
+  Astro.props;
 ---
 
-<Layout title={`${title}`} ogImage={image}>
+<Layout title={`${title}`} ogImage={image} description={description}>
   <Navbar />
 
   <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
