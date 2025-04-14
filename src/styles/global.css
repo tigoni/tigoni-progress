@@ -87,7 +87,7 @@
 }
 
 .dark {
-  --background: 0 0% 5%;
+  --background: 0 0% 3%;
   --foreground: 0 0% 98%;
   --card: 240 10% 3.9%;
   --card-foreground: 0 0% 98%;
@@ -114,7 +114,7 @@
 }
 
 * {
-  @apply border-border border-dashed;
+  @apply border-dashed border-border;
 
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--border)) transparent;
@@ -141,8 +141,6 @@ pre {
   font-family: JetBrains Mono;
   border: 0;
 }
-
-
 
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {
@@ -173,3 +171,4 @@ pre {
 .copy-code svg {
   @apply size-4;
 }
+
