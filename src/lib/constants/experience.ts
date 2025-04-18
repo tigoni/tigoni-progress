@@ -6,7 +6,7 @@ export const EXPERIENCES: Experience[] = [
     positions: [
       {
         title: "Fullstack Engineer",
-        year: "04.2024 - present",
+        year: "04.2024 - 04.2025",
         description: `
 - ♦ Developed **end-to-end features** across the stack using **Next.js,  Zustand, React Query, FastAPI and Mongodb**.
 - ♦ Conducted **code reviews**, mentored junior developers, and provided guidance on best practices.
