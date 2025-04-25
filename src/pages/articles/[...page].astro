@@ -27,7 +27,10 @@ const series = [
 
 export const getStaticPaths = (async ({ paginate }) => {
   const articles = await getCollection("blog", ({ data }) => !data.draft);
-  return paginate(articles, { pageSize: SITE.postPerPage });
+  const sortedArticles = articles.sort(
+    (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
+  );
+  return paginate(sortedArticles, { pageSize: SITE.postPerPage });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
