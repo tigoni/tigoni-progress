@@ -2,6 +2,33 @@ import type { Experience } from "../types";
 
 export const EXPERIENCES: Experience[] = [
   {
+    company: "Activepieces",
+    positions: [
+      {
+        title: "Full Stack Software Engineer",
+        year: "05.2025 - present",
+        description: `
+- ♦ Lemme build something cool first... then I'll tell you what I did 😉.
+            `,
+        skills: [
+          "TypeScript",
+          "React",
+          "Zustand",
+          "Tailwind CSS",
+          "Node.js",
+          "Fastify",
+          "BullMQ",
+          "Redis",
+          "PostgreSQL",
+          "Docker",
+          "Playwright",
+          "Vite",
+          "Nx",
+        ]
+      },
+    ],
+  },
+  {
     company: "BIGmama Technology",
     positions: [
       {
