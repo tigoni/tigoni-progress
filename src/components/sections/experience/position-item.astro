@@ -74,9 +74,7 @@ const { position } = Astro.props;
   }
 </style>
 
-<script is:inline>
-  // Initialize all toggle buttons
-
+<script>
   document.addEventListener("astro:page-load", () => {
     const toggleButtons = document.querySelectorAll(".toggle-btn");
 
