@@ -75,6 +75,7 @@ improved delivery schedules by 30%.
           "Express",
           "Docker",
           "Cardano",
+          "Solidity"
         ],
       },
     ],
