@@ -23,10 +23,15 @@ import {
   Solidity,
   Supabase,
   Kubernetes,
+  Kafka,
+  GoogleCloud,
+  AWS,
+  Spring
 } from "developer-icons";
 
 import HonoIcon from '@/components/ui/icons/hono.astro'
 import FastapiIcon from '@/components/ui/icons/fastapi.astro'
+import { Rabbit } from "lucide-react";
 
 
 export const TECH_STACK = [
@@ -36,6 +41,12 @@ export const TECH_STACK = [
     href: "https://www.java.com/en/",
     icon: Java,
   },
+{
+    title: "SpringBoot",
+    href: "https://www.springboot.io",
+    icon: Spring,
+  },
+
   {
     title: "TypeScript",
     href: "https://www.typescriptlang.org/",
@@ -58,41 +69,6 @@ export const TECH_STACK = [
     href: "https://nextjs.org/",
     icon: NextJs,
   },
-  // {
-  //   title: "Astro.js",
-  //   href: "https://astro.build/",
-  //   icon: Astro,
-  // },
-  // {
-  //   title: "Tailwind CSS",
-  //   href: "https://tailwindcss.com/",
-  //   icon: TailwindCSS,
-  // },
-  // {
-  //   title: "Redux",
-  //   href: "https://redux.js.org/",
-  //   icon: Redux,
-  // },
-  // {
-  //   title: "Zustand",
-  //   href: "https://zustand-demo.pmnd.rs/",
-  // },
-  // {
-  //   title: "React Query",
-  //   href: "https://tanstack.com/query/latest",
-  //   icon: ReactQuery,
-  // },
-  // {
-  //   title: "shadcn/ui",
-  //   href: "https://ui.shadcn.com/",
-  //   icon: ShadcnUI,
-  // },
-  // {
-  //   title: "Motion",
-  //   href: "https://motion.dev/",
-  //   icon: Framer,
-  // },
-
 
   // Backend Technologies
   {
@@ -100,8 +76,26 @@ export const TECH_STACK = [
     href: "https://nodejs.org/",
     icon: NodeJs,
   },
-
-
+  {
+    title: "Kafka",
+    href: "https://kafka.org/",
+    icon: Kafka,
+  },
+  {
+    title: "RabbitMQ",
+    href: "https://rabbitmq.com",
+    icon: Rabbit,
+  },
+  {
+    title: "Google Cloud",
+    href: "https://cloud.google.com",
+    icon: GoogleCloud,
+  },
+  {
+    title: "AWS",
+    href: "https://aws.amazon.com",
+    icon: AWS,
+  },
   // Databases & Caching
   {
     title: "Postgres",
@@ -124,37 +118,28 @@ export const TECH_STACK = [
     icon: Supabase,
   },
 
-// DevOps & Development Tools
-{
-  title: "Docker",
+  // DevOps & Development Tools
+  {
+    title: "Docker",
     href: "https://www.docker.com/",
-      icon: Docker,
+    icon: Docker,
   },
-{
-  title: "Kubernetes",
+  {
+    title: "Kubernetes",
     href: "https://www.kubernetes.com/",
-      icon: Kubernetes,
+    icon: Kubernetes,
   },
-{
-  title: "Git",
+  {
+    title: "Git",
     href: "https://git-scm.com/",
-      icon: Git,
+    icon: Git,
   },
 
-
-
-// Miscellaneous
-{
-  title: "Figma",
-    href: "https://www.figma.com/",
-      icon: Figma,
-  },
-
-//Blockchain
-{
-  title: "Solidity",
+  //Blockchain
+  {
+    title: "Solidity",
     href: "https://www.ethereum.org/",
-      icon: Solidity,
+    icon: Solidity,
   },
 ];
 
