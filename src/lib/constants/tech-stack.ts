@@ -16,7 +16,13 @@ import {
   TailwindCSS,
   TypeScript,
   Appwrite,
-  Astro
+  Astro,
+  Java,
+  Haskell,
+  PostgreSQL,
+  Solidity,
+  Supabase,
+  Kubernetes,
 } from "developer-icons";
 
 import HonoIcon from '@/components/ui/icons/hono.astro'
@@ -26,14 +32,19 @@ import FastapiIcon from '@/components/ui/icons/fastapi.astro'
 export const TECH_STACK = [
   // Programming Languages
   {
+    title: "Java",
+    href: "https://www.java.com/en/",
+    icon: Java,
+  },
+  {
     title: "TypeScript",
     href: "https://www.typescriptlang.org/",
     icon: TypeScript,
   },
   {
-    title: "Python",
-    href: "https://www.python.org/",
-    icon: Python,
+    title: "Haskell",
+    href: "https://www.haskell.org",
+    icon: Haskell,
   },
 
   // Frontend Technologies
@@ -47,40 +58,40 @@ export const TECH_STACK = [
     href: "https://nextjs.org/",
     icon: NextJs,
   },
-  {
-    title: "Astro.js",
-    href: "https://astro.build/",
-    icon: Astro,
-  },
-  {
-    title: "Tailwind CSS",
-    href: "https://tailwindcss.com/",
-    icon: TailwindCSS,
-  },
-  {
-    title: "Redux",
-    href: "https://redux.js.org/",
-    icon: Redux,
-  },
-  {
-    title: "Zustand",
-    href: "https://zustand-demo.pmnd.rs/",
-  },
-  {
-    title: "React Query",
-    href: "https://tanstack.com/query/latest",
-    icon: ReactQuery,
-  },
-  {
-    title: "shadcn/ui",
-    href: "https://ui.shadcn.com/",
-    icon: ShadcnUI,
-  },
-  {
-    title: "Motion",
-    href: "https://motion.dev/",
-    icon: Framer,
-  },
+  // {
+  //   title: "Astro.js",
+  //   href: "https://astro.build/",
+  //   icon: Astro,
+  // },
+  // {
+  //   title: "Tailwind CSS",
+  //   href: "https://tailwindcss.com/",
+  //   icon: TailwindCSS,
+  // },
+  // {
+  //   title: "Redux",
+  //   href: "https://redux.js.org/",
+  //   icon: Redux,
+  // },
+  // {
+  //   title: "Zustand",
+  //   href: "https://zustand-demo.pmnd.rs/",
+  // },
+  // {
+  //   title: "React Query",
+  //   href: "https://tanstack.com/query/latest",
+  //   icon: ReactQuery,
+  // },
+  // {
+  //   title: "shadcn/ui",
+  //   href: "https://ui.shadcn.com/",
+  //   icon: ShadcnUI,
+  // },
+  // {
+  //   title: "Motion",
+  //   href: "https://motion.dev/",
+  //   icon: Framer,
+  // },
 
 
   // Backend Technologies
@@ -89,28 +100,14 @@ export const TECH_STACK = [
     href: "https://nodejs.org/",
     icon: NodeJs,
   },
-  {
-    title: "Bun",
-    href: "https://bun.sh/",
-    icon: BunJs,
-  },
-  {
-    title: "FastAPI",
-    href: "https://fastapi.tiangolo.com/",
-    icon: FastapiIcon
-  },
-  {
-    title: "Honojs",
-    href: "https://hono.dev/",
-    icon: HonoIcon
-  },
-  {
-    title: "Appwrite",
-    href: "https://appwrite.io",
-    icon: Appwrite
-  },
+
 
   // Databases & Caching
+  {
+    title: "Postgres",
+    href: "https://www.postgresql.org/",
+    icon: PostgreSQL,
+  },
   {
     title: "MongoDB",
     href: "https://www.mongodb.com/",
@@ -121,26 +118,43 @@ export const TECH_STACK = [
     href: "https://redis.io/",
     icon: Redis,
   },
-
-  // DevOps & Development Tools
   {
-    title: "Docker",
+    title: "Supabase",
+    href: "https://supabase.com/",
+    icon: Supabase,
+  },
+
+// DevOps & Development Tools
+{
+  title: "Docker",
     href: "https://www.docker.com/",
-    icon: Docker,
+      icon: Docker,
   },
-  {
-    title: "Git",
+{
+  title: "Kubernetes",
+    href: "https://www.kubernetes.com/",
+      icon: Kubernetes,
+  },
+{
+  title: "Git",
     href: "https://git-scm.com/",
-    icon: Git,
+      icon: Git,
   },
 
 
 
-  // Miscellaneous
-  {
-    title: "Figma",
+// Miscellaneous
+{
+  title: "Figma",
     href: "https://www.figma.com/",
-    icon: Figma,
+      icon: Figma,
+  },
+
+//Blockchain
+{
+  title: "Solidity",
+    href: "https://www.ethereum.org/",
+      icon: Solidity,
   },
 ];
 
