@@ -15,13 +15,13 @@ const sideProjects = projects.filter(project => project.data.type === "side");
 ---
 
 <PageLayout
-  description="A collection of things I’ve built, full-stack apps, experiments, and side projects."
+  description="A collection of projects I have worked on, both for work as full-stack apps or backend apis as well as and side projects."
   title="My Projects"
 >
   <Pattern />
   <Box>
     <BoxHeader>
-      <BoxTitle> Built to Last </BoxTitle>
+      <BoxTitle> Core Projects </BoxTitle>
     </BoxHeader>
 
     {coreProjects.map(item => <ProjectItem project={item} />)}
