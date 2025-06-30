@@ -1,6 +1,6 @@
 export const PROFILE_INFO = {
   role: 'Software Engineer | Blockchain Developer',
-  logo: 'Ken.K',
+  logo: 'Tigoni IM',
   slogan: 'From backend to blockchain — solutions that scale.',
   displayName: "Ken Kelly",
   email: "muhindi.kn@gmail.com",
