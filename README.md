@@ -34,7 +34,7 @@ Customization is simple and straightforward:
 ## Contribute & Support
 Love the project? Give it a ⭐ on GitHub! Contributions are always welcome—whether it's fixing a bug, adding a new feature, or even correcting a small typo.
 
-[👉 Check out the repo](https://github.com/Louai-Zokerburg/louai) and make your first pull request!
+[👉 Check out the repo](https://github.com/tigoni) and make your first pull request!
 
 ---
 
