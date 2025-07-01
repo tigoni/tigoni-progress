@@ -12,6 +12,8 @@ tags:
   - haskell
 description: Approaches Cardano takes to scaling its blockchain network to handle more transactions as use cases increase.
 ---
+
+### Scaling Cardano
 In all blockchain systems, scalability is a core design issue that is aimed at addressing the problem of how a blockchain can be able to process more transactions even as the network grows. The common description of scalability in a blockchain is usually the mention of transactions per secondi or transaction throughput. The ability of a blockchain to scale it transaction throughput with increased use cases from adoption is what would define it as a scalable blockchain.
 
 The peer-to-peer nature of blockchain systems make scaling a more difficult problem than would be the case in a centralised system. When a transaction is added to a block, the block needs to propagate though the network and be verified and validated by other nodes for it to be considered final. For instance, in Bitcoin the maximum size a block can have is 1MB. A typical transaction has 250 bytes which means on average a block will have 4,000 transactions. The average time taken to create a new block in Bitcoin is 10 minutes. That means that only a total of 7 transactions can be processed every second on the network. As can be deduced, one way to increase the tps is to have a larger block size or to reduce the block creation time. While this is possible, it comes at the expense of decentralization since more bandwidth and storage would be needed by nodes. In blockchain the issues of scaling, decentralization and security are big problems since solving one lead to compromising on the other. It is known as the blockchain trilemma.
