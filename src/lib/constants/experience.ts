@@ -64,7 +64,7 @@ front-end integration.
       {
 
         title: "Cardano Blockchain Engineer",
-        year: "01.2022 - 04.2024",
+        year: "12.2021 - 04.2024",
         description: `
 - ♦ Designed blockchain integration APIs for the AfyaRekod platform, enabling patient-owned medical data to be shared
 in a positive way on the Cardano blockchain. Implemented using **Cardano**, **Mesh JS**
@@ -72,8 +72,6 @@ in a positive way on the Cardano blockchain. Implemented using **Cardano**, **Me
 chain transparency..
 - ♦ Guided a team of five developers in Agile sprints, introduced code reviews and CI / CD pipelines,
 improved delivery schedules by 30%.
-- ♦ .
-- ♦ .
             `,
         skills: [
           "Node.js",
