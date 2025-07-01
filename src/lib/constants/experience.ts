@@ -56,8 +56,14 @@ front-end integration.
           "",
         ],
       },
+    ],
+  },
+  {
+    company: "Africa Blockchain Center",
+    positions: [
       {
-        title: "Backend Engineer",
+
+        title: "Cardano Blockchain Engineer",
         year: "01.2022 - 04.2024",
         description: `
 - ♦ Designed blockchain integration APIs for the AfyaRekod platform, enabling patient-owned medical data to be shared
@@ -107,34 +113,34 @@ customization.
     ],
   },
 
-//   {
-//     company: "Education",
-//     positions: [
-//       {
-//         title: "Bsc. In Information Technology | KCA University",
-//         year: "2017",
-//         description: `
-// - ♦ Built a strong foundation in **software engineering**, focusing on **web development** and **UI/UX principles**.
-// - ♦ Gained hands-on experience with **C/C++ and Linux**, enhancing problem-solving and system-level programming skills.
-// - ♦ Developed expertise in **relational databases** and **networking**, applying concepts to real-world applications.
-// - ♦ Strengthened **communication and teamwork skills** through group projects, presentations, and technical discussions.
-//             `,
-//         skills: [
-//           "C/C++",
-//           "Linux",
-//           "UI/UX Foundation",
-//           "Marketing",
-//           "WordPress",
-//           "Networking",
-//           "Algorithms",
-//           "Relational Databases",
-//           "Software Engineering",
-//           "Self-learning",
-//           "Teamwork",
-//           "Presentation",
-//         ],
-//       },
-//     ],
-//   },
+  //   {
+  //     company: "Education",
+  //     positions: [
+  //       {
+  //         title: "Bsc. In Information Technology | KCA University",
+  //         year: "2017",
+  //         description: `
+  // - ♦ Built a strong foundation in **software engineering**, focusing on **web development** and **UI/UX principles**.
+  // - ♦ Gained hands-on experience with **C/C++ and Linux**, enhancing problem-solving and system-level programming skills.
+  // - ♦ Developed expertise in **relational databases** and **networking**, applying concepts to real-world applications.
+  // - ♦ Strengthened **communication and teamwork skills** through group projects, presentations, and technical discussions.
+  //             `,
+  //         skills: [
+  //           "C/C++",
+  //           "Linux",
+  //           "UI/UX Foundation",
+  //           "Marketing",
+  //           "WordPress",
+  //           "Networking",
+  //           "Algorithms",
+  //           "Relational Databases",
+  //           "Software Engineering",
+  //           "Self-learning",
+  //           "Teamwork",
+  //           "Presentation",
+  //         ],
+  //       },
+  //     ],
+  //   },
 ];
 
