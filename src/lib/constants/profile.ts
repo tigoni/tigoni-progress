@@ -1,11 +1,11 @@
 export const PROFILE_INFO = {
-  role: 'Software Engineer | Blockchain Developer',
+  role: 'Software Engineer',
   logo: 'Tigoni IM',
-  slogan: 'From backend to blockchain — solutions that scale.',
+  slogan: 'Engineering the Next Digital Frontier',
   displayName: "Ken Kelly",
   email: "muhindi.kn@gmail.com",
   about: `
-I'm a senior back-end engineer passionate about building scalable backend, Web3 and blockchain solutions. With expertise in Java (Spring Boot), JavaScript (Node.js), and EVM blockchains (Ethereum, Polygon, Base), I craft secure, high-performance decentralized systems. Skilled in cloud-native microservices on AWS/GCP and optimizing with Kafka, PostgreSQL, and MongoDB.
+I am a Senior Backend Engineer with a focus on developing scalable backend, Web3, and blockchain solutions. My core proficiencies include Java (Spring Boot) and JavaScript (Node.js), utilized to deliver secure, high-performance decentralized systems. I possess a comprehensive understanding of major blockchain ecosystems, specifically Bitcoin, Cardano, and EVM blockchains (Ethereum, Polygon, Base). My expertise extends to building cloud-native microservices on AWS/GCP and optimizing system performance using Kafka, PostgreSQL, and MongoDB.
 
 Always innovating, always optimizing, always delivering.  
 `,
