@@ -1,0 +1,55 @@
+---
+pubDatetime: 2025-07-18
+title: Midgard - Cardano's First Layer 2 
+category: layer-2
+draft: false
+series: layer-2
+image: /og-images/articles/midgard-l2.jpg
+tags:
+  - layer-2
+  - rollups
+  - optimistic-rollups
+  - scaling
+description: A brief overview of Midgard, Cardano's first Layer 2 solution, its architecture, and how it enhances scalability and transaction throughput on the Cardano blockchain. 
+---
+{/* ![Cover Image](/og-images/articles/midgard-l2.jpg) */}
+<div class="flex justify-center" className='h-1/2'>
+  <img src="/og-images/articles/midgard-l2.jpg" alt="Midgard Logo"/>
+</div>
+## Why a layer 2 
+A layer 2 solution is a secondary framework or protocol built on top of an existing blockchain (layer 1) to enhance its scalability, speed, and efficiency. It allows for faster transactions and reduced congestion on the main chain by processing transactions off-chain while still leveraging the security and decentralization of the underlying blockchain. The main goal of layer 2 solutions is to improve the overall performance of the blockchain network, enabling it to handle a larger volume of transactions without compromising security or decentralization.
+## Quick Overview of Midgard
+Midgard is Cardano's first layer 2 solution, designed to enhance the scalability and transaction throughput of the Cardano blockchain. It utilizes optimistic rollups, a technology that allows for off-chain transaction processing while maintaining the security and integrity of the main chain. Midgard aims to significantly increase the number of transactions per second (TPS) on Cardano, making it more efficient for decentralized applications (dApps) and smart contracts.
+
+Midgard uses the concept of optimistic rollups, which means that transactions are processed off-chain and then submitted to the main chain in batches. This approach reduces the load on the main chain, allowing for faster transaction confirmations and lower fees. Midgard also incorporates a fraud-proof mechanism to ensure the validity of off-chain transactions, providing an additional layer of security. 
+
+It uses the concept of operators and watchers to manage the rollup process, ensuring that transactions are processed efficiently and securely.  Operators are responsible for submitting batches of transactions to the main chain, while watchers monitor the rollup operations to detect any fraudulent activity. This dual mechanism ensures that only valid transactions are included in the main chain, maintaining the integrity of the network.
+Watchers monitor the rollup operations to detect any fraudulent activity, and if fraud is detected, they can challenge the validity of the transactions. This mechanism ensures that only valid transactions are included in the main chain, maintaining the integrity of the network.
+
+Incentives are provided to both operators and watchers to ensure the smooth functioning of the rollup process. Operators are rewarded for processing transactions efficiently, while watchers are incentivized to monitor the system for fraudulent activity. This creates a robust ecosystem that encourages honest participation and enhances the overall security of the layer 2 solution.
+
+
+##  How Midgard Works
+In general, optimistic rollups work by processing transactions off-chain and then submitting them to the main chain in batches. This approach reduces the load on the main chain, allowing for faster transaction confirmations and lower fees. The main idea it to bundle multiple transactions into a single batch, which is then submitted to the main chain. This reduces the number of transactions that need to be processed on-chain, significantly increasing the throughput of the network. 
+
+In Midgard, an operator is responsible for creating and commiting these batches of transactions to the main chain. Each block is queued for a fixed duration before being merged into the layer 1 chain. Each operator has to provide a guarantee that the submitted transactions are valid and this is done by providing a deposit in the form of ADA. If a transaction is found to be invalid, the operator can lose their deposit, which serves as a deterrent against fraudulent activity.
+
+In the queue, anyone can inspect the transactions for validity and challenge them if they suspect fraud. This is where the watcher comes in. Watchers are independent entities that monitor the rollup operations and can challenge the validity of transactions if they detect any fraudulent activity. If a watcher successfully challenges a transaction by submitting a fraud proof, the operator loses their deposit, while the watcher gets the reward from this deposit.The transaction is removed from the batch.
+
+The three properties that ensure  efficient processing of transactions while remaining secure are:
+- **Bond Mechanism**: Operators must deposit a certain amount of ADA as collateral to ensure they act honestly. If they submit fraudulent transactions, they lose their deposit.
+-  **Fraud Proof Incentives**: Watchers are incentivized to monitor the rollup operations and can challenge fraudulent transactions. If they successfully prove fraud, they receive a reward from the operator's deposit.
+- **Waiting Period**: There is a fixed waiting period before a batch of transactions is finalized on the main chain. This allows time for watchers to inspect the transactions and challenge any fraudulent ones.
+- **Availability of Data**: The data for the transactions in the rollup is made available to all participants, allowing them to verify the validity of the transactions independently.
+
+## Midgard Vs Ethereum Optimistic Rollups 
+
+
+## Use Cases and Possibilities
+Now we need to create an empty haskell project in a local directory. This will be the project that will house all your smart contracts. To create the project, do `cabal init` from the terminal. This will prompt for some preferences and you can use the defaults for all the questions. 
+
+## Why It Matters For Cardano
+Once the project is created, you can start writing your smart contracts. The first thing to do
+
+## Conclusion
+The end
