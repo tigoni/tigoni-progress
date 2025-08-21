@@ -1,9 +1,9 @@
 export const SITE = {
   pageType: 'website',
-  author: "Kelly Muhindi",
+  author: "Ken Kelly",
   profile: "https://tigoni.im",
-  desc: "My digital space, projects, insights, and thoughts on software engineering.",
-  title: "Kelly Muhindi | Software Engineer",
+  desc: "“Projects, ideas, and reflections on software engineering and decentralized systems.",
+  title: "Ken Kelly | Software Engineer - Web3 & Backend Systems",
   ogImage: '/og-image.jpg',
   postPerPage: 6,
 } as const;
