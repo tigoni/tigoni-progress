@@ -1,0 +1,96 @@
+---
+pubDatetime: 2025-11-22
+title: "Event-Driven Architecture: Bridging Off-Chain Data with On-Chain Events"
+category: development
+draft: false
+series: blockchain
+image: /og-images/articles/sql.jpg
+tags:
+  - cardano
+  - events
+  - architecture
+  - web3-integration
+  - blockchain
+description: Working with on-chain block data in backend applications
+---
+
+## Introduction
+
+Blockchains are great state machines, but they are also siloed in a way. They know everything about their own internal state (balances, UTXOs, smart contract storage) but nothing about the outside world. Conversely, the traditional Web2 backend (your PostgreSQL database, your notification server, your analytics dashboard) knows nothing about what just happened on-chain unless you explicitly tell it.
+
+So suppose I want to build a backend service that reacts to on-chain events—like a payment arriving at a specific address, or a smart contract minting a new NFT. How do I bridge the gap between the blockchain and my backend?
+One way to solve this, albeit a naive one, is to poll the blockchain node periodically. 
+
+We could write a simple service that runs every few seconds, queries the Cardano node for the latest block, and checks if any transactions matches my criteria. For example, if I wanted to know when a payment arrived at my wallet address, the endpoint would fetch the latest block, iterate through all transactions, and see if any outputs matched my address.If a match was found, I would trigger some off-chain logic—like updating a user balance in my database, sending a push notification, or triggering a fiat settlement via a mobile money API.
+
+While this approach works for small-scale applications or during prototyping, it quickly becomes inefficient and unreliable as the application scales. How? Because polling is inherently wasteful and slow. On Cardano, new blocks are produced approximately every 20 seconds. If you poll every 10 seconds, you might miss events that occur between polls. Additionally, as the number of transactions increases, the time it takes to process each block grows, leading to delays and increased resource consumption.
+
+## Enter Event-Driven Architecture
+To overcome the limitations of polling, we can adopt an Event-Driven Architecture (EDA) approach. Instead of asking the blockchain "Did anything happen?" at regular intervals, we set up a system that listens for events as they occur and pushes updates to our backend in real-time. This now allows us to react instantly to on-chain events without the overhead of constant polling. 
+
+Blockchains are inherently event-driven systems. Every transaction, smart contract execution, or state change generates events that can be captured and processed. By leveraging these events, we can build a more efficient and responsive backend architecture. For instance, in Cardano there are a large number of events emmited by the node, such as `TxSubmission`, `BlockAdded`, `StakeDelegation`, and many more.
+
+Our task now becomes setting up a reliable pipeline to capture these events and process them in our backend service. We want a scalable solution that can handle bursts of activity, ensure no events are lost, and allow our backend to process events asynchronously.
+
+## Building the Pipeline
+Let's break down the components of an event-driven pipeline for blockchain events. These components work together to ensure that on-chain events are captured, queued, and processed efficiently.
+#### The Producer
+Listens to the blockchain and emits events. This is typically a service that connects to a blockchain node and streams events as they occur. Luckily for us, there are existing tools that can help with this. On Cardano, one such tool is Oura, a Rust-based event streaming service that connects to a Cardano node and streams events in real-time.
+#### The Broker
+A message queue that buffers events. This component ensures that events are stored reliably and can be processed asynchronously by the backend. Apache Kafka is a popular choice for this role due to its high throughput and fault tolerance. 
+
+Why Kafka? Because on-chain events can be bursty. If a popular NFT drop happens or the network gets congested, you might receive thousands of events in seconds. If your backend tries to process them synchronously, it might crash.
+
+Kafka acts as a buffer. It absorbs the high-throughput stream of events from the blockchain and holds them until your backend is ready to process them. It guarantees that even if your backend service goes down for maintenance, you won't miss a single payment.
+Alternatively, other message brokers like RabbitMQ or AWS SQS can also be used.
+#### The Consumer
+Your backend service that processes the events. This is where your business logic resides. The consumer listens to the message broker, retrieves events, and triggers the necessary off-chain actions (e.g., updating databases, sending notifications, etc.).
+This architecture decouples the event production from consumption, allowing each component to scale independently and handle failures gracefully. With the ight setup, the backend can react to on-chain events in near real-time, providing a seamless user experience while maintaining system reliability.
+
+## Example: A Simple Payment Listener on Cardano With ,Our, Kafka, and Spring Boot
+
+1. Set Up Oura to Stream Events from Cardano
+First, we need to set up Oura to connect to our Cardano node and stream events. Oura can be configured to listen for specific event types, such as `TxSubmission`, which indicates a new transaction has been submitted to the network.
+
+2. Configure Kafka as the Message Broker
+Next, we set up Apache Kafka to act as our message broker. We create a topic (e.g., `cardano.events`) where Oura will publish the events it receives from the Cardano node.
+
+3. Implement the Consumer in Spring Boot
+Finally, we implement a Spring Boot application that acts as the consumer. This application listens to the Kafka topic and processes incoming events.I chose to use Spring Boot for the backend service, but you can use any framework or language that supports Kafka consumers including Node.js. 
+A popular choice for Java applications is the Spring Kafka library. This library simplifies the process of consuming messages from Kafka topics. Below is a simplified example of how this can be done:
+
+```java
+@Service
+public class BlockchainEventListener {
+
+    @KafkaListener(topics = "cardano.events", groupId = "payment-processor")
+    public void handlePaymentEvent(String eventJson) {
+        // Parse the JSON event from Oura
+        TxEvent event = parseEvent(eventJson);
+
+        if (event.getType().equals("TxSubmission") && isMyWallet(event.getAddress())) {
+            System.out.println("Payment received! Tx Hash: " + event.getTxHash());
+            
+            // Trigger off-chain logic:
+            // 1. Update user balance in PostgreSQL
+            // 2. Send push notification via Firebase
+            // 3. Trigger fiat settlement via Mobile Money API
+        }
+    }
+}
+```
+## Why This Matters
+By decoupling the listening from the processing, you gain massive advantages:
+
+Scalability: You can spin up multiple instances of your Spring Boot app to consume events from Kafka in parallel. If we have bursts of events we can configure Kafka using consumer groups to balance the load.
+
+Resilience: If the blockchain node needs a restart, Oura handles the reconnection. If your backend needs a restart, Kafka holds the messages.
+
+Real-time UX: Your users see their deposits processed in seconds, not minutes.
+
+## Wrapping Up
+Moving from polling to event streaming is critical for building responsive and scalable blockchain applications. By leveraging tools like Oura and Kafka, we can create a robust event-driven architecture that empowers backend engineers. This setup bridges the gap between the decentralized ledger and the centralized services that power the user experience.
+
+If you are building on Cardano, give Oura + Kafka a try. It’s a robust, production-grade pipeline that respects the complexity of the blockchain while keeping your backend architecture clean and sane.
+
+A complete example project can be found on my GitHub: [github.com/your-repo/cardano-payments]
