@@ -34,28 +34,30 @@ Our task now becomes setting up a reliable pipeline to capture these events and 
 
 ## Building the Pipeline
 Let's break down the components of an event-driven pipeline for blockchain events. These components work together to ensure that on-chain events are captured, queued, and processed efficiently.
-#### The Producer
+### The Producer
 Listens to the blockchain and emits events. This is typically a service that connects to a blockchain node and streams events as they occur. Luckily for us, there are existing tools that can help with this. On Cardano, one such tool is Oura, a Rust-based event streaming service that connects to a Cardano node and streams events in real-time.
-#### The Broker
+### The Broker
 A message queue that buffers events. This component ensures that events are stored reliably and can be processed asynchronously by the backend. Apache Kafka is a popular choice for this role due to its high throughput and fault tolerance. 
 
 Why Kafka? Because on-chain events can be bursty. If a popular NFT drop happens or the network gets congested, you might receive thousands of events in seconds. If your backend tries to process them synchronously, it might crash.
 
 Kafka acts as a buffer. It absorbs the high-throughput stream of events from the blockchain and holds them until your backend is ready to process them. It guarantees that even if your backend service goes down for maintenance, you won't miss a single payment.
 Alternatively, other message brokers like RabbitMQ or AWS SQS can also be used.
-#### The Consumer
+### The Consumer
 Your backend service that processes the events. This is where your business logic resides. The consumer listens to the message broker, retrieves events, and triggers the necessary off-chain actions (e.g., updating databases, sending notifications, etc.).
 This architecture decouples the event production from consumption, allowing each component to scale independently and handle failures gracefully. With the ight setup, the backend can react to on-chain events in near real-time, providing a seamless user experience while maintaining system reliability.
 
-## Example: A Simple Payment Listener on Cardano With ,Our, Kafka, and Spring Boot
+## Example: A Simple Payment Listener on Cardano 
+### Our Toolkit: Oura, Kafka, and Spring Boot
 
-1. Set Up Oura to Stream Events from Cardano
-First, we need to set up Oura to connect to our Cardano node and stream events. Oura can be configured to listen for specific event types, such as `TxSubmission`, which indicates a new transaction has been submitted to the network.
+1. Set Up Oura to Stream Events from Cardano: 
+First, we need to set up [Oura](https://github.com/txpipe/oura) to connect to our Cardano node and stream events. Oura is a lightweight service that listens to the Cardano node and emits events in real-time. It's highly configurable and can be tailored to your specific needs.
+Oura can be configured to listen for specific event types, such as `TxSubmission`, which indicates a new transaction has been submitted to the network.
 
-2. Configure Kafka as the Message Broker
+2. Configure Kafka as the Message Broker:
 Next, we set up Apache Kafka to act as our message broker. We create a topic (e.g., `cardano.events`) where Oura will publish the events it receives from the Cardano node.
 
-3. Implement the Consumer in Spring Boot
+3. Implement the Consumer in Spring Boot:
 Finally, we implement a Spring Boot application that acts as the consumer. This application listens to the Kafka topic and processes incoming events.I chose to use Spring Boot for the backend service, but you can use any framework or language that supports Kafka consumers including Node.js. 
 A popular choice for Java applications is the Spring Kafka library. This library simplifies the process of consuming messages from Kafka topics. Below is a simplified example of how this can be done:
 
