@@ -5,23 +5,22 @@ export const PROFILE_INFO = {
   displayName: "Ken Kelly",
   email: "muhindi.kn@gmail.com",
   about: `
-I’m a Softare Engineer with specialization in Backend and Blockchain and Web3 with 8+ years of experience building secure, scalable, and high-performance systems. My expertise spans backend development with Node.js, Java, and Rust, combined with deep knowledge of blockchain principles, consensus mechanisms, cryptographic primitives, security standards, and smart contract security techniques.  
-\ 
-**Blockchain & Smart Contract Expertise:**
-- EVM chains: Solidity, Hardhat, Foundry, OpenZeppelin  
-- Cardano: Plutus (Haskell), Aiken, Lucid-Evolution, MeshJs 
+I am a Senior Software Engineer specializing in **Backend Systems, Blockchain, and Web3** with over 8 years of experience in architecting secure, scalable, and high-performance environments. My expertise bridges traditional backend development (Node.js, Java, Rust) with deep decentralized technical knowledge, including consensus mechanisms, cryptographic primitives, and smart contract security.
 
-**What I Do**
-- Design and implement **smart contracts**, **backend integrations** and **REST APIs** for decentralized applications  
-- Build and deploy **secure wallet solutions**  
+**Technical Focus:**
+- **EVM Ecosystem:** Proficient in Solidity, Hardhat, Foundry, and OpenZeppelin standards.
+- **Cardano Ecosystem:** Expertise in Plutus (Haskell), Aiken, Lucid-Evolution, and MeshJS.
 
-**Passion & Drive**
+**What I Deliver:**
+- End-to-end design and implementation of **smart contracts** and robust **REST APIs**.
+- Seamless **backend integrations** for decentralized applications.
+- High-assurance, **secure wallet solutions** and financial primitives.
 
-I am passionate about **DeFi and decentralized systems**, and thrive on the challenge of turning new requirements into production-ready systems, optimizing performance for scale and, ensuring security, robustness, and reliability** in Web3 applications. 
+I am driven by the transformative potential of **DeFi and decentralized systems**. I excel at transforming complex requirements into production-ready systems, optimizing for performance at scale, and ensuring the absolute security and reliability of Web3 applications.
 
 ---
 
-"Be a student as long as you still have something to learn, and this will mean all your life." -- Henry L. Doherty
+*"Be a student as long as you still have something to learn, and this will mean all your life."* — **Henry L. Doherty**
 `,
 } as const;
 

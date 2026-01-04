@@ -5,27 +5,23 @@ export const EXPERIENCES: Experience[] = [
     company: "TX Meta",
     positions: [
       {
-        title: "Lead Software Engineer",
-        year: "05.2024 - present",
+        title: "Senior Backend Developer",
+        year: "06.2024 - Present",
         description: `
-- ♦ Design and development of a crypto-to-mobile money on/off ramp and payments solution using stable
-coins like USDT with a focus on providing a channel for cross-border payments and enabling general
-crypto utility.
-- ♦ Lead architecture and developement of a member-owned blockchain investment platform (UC DAO)
-allowing users to propose investment projects with governance features.
-            `,
+- Architected a secure, multichain wallet infrastructure supporting 10+ digital assets with dynamic token management.
+- Built a high-performance payment gateway integrating stablecoins (USDT/USDC) and mobile money for cross-border remittances.
+- Developed a high-throughput transaction module for both on-chain and off-chain operations, ensuring low-latency processing.
+- Mentored a team of developers and implemented rigorous CI/CD practices, significantly improving deployment reliability.
+        `,
         skills: [
           "TypeScript",
-          "React Native",
-          "Zustand",
-          "Tailwind CSS",
           "Node.js",
+          "Zustand",
           "BullMQ",
-          "RabbitMQ",
           "Redis",
           "PostgreSQL",
           "Docker",
-          "Vite",
+          "AWS",
         ]
       },
     ],
@@ -34,111 +30,90 @@ allowing users to propose investment projects with governance features.
     company: "C2C Advisory Services",
     positions: [
       {
-        title: "Platform Lead Engineer",
-        year: "04.2024 - 01.2025",
+        title: "Lead Platform Engineer (Contract)",
+        year: "06.2024 - 02.2025",
         description: `
-- ♦ Architected and implemented Java-based microservices using **Spring Boot, PostgreSQL, and Kafka** for a financial
-platform that supports 2M+ users, enabling scalable payments and reporting.
-- ♦ Integrated M-Pesa via the Daraja API and implemented Kafka for high-throughput transaction process-
-ing, increasing TPS by 40%.
-- ♦ Managed CI/CD pipelines on **Bitbucket/GCP** and led API documentation with **OpenAPI** for seamless
-front-end integration.
-- ♦ Worked closely with **front-end engineers** to deploy backend infrastructure on **Kubernetes**.
-            `,
+- Designed Java-based microservices for a large-scale financial platform serving 2M+ users, managing complex payment logic.
+- Optimized transaction processing speed (TPS) by 40% through Kafka-based queueing and M-Pesa integration.
+- Improved system performance by 35% using strategic database indexing and Redis-based caching layers.
+- Managed containerized infrastructure on Kubernetes across GCP and Bitbucket pipelines.
+        `,
         skills: [
           "Java",
           "Spring Boot",
-          "Docker",
           "Kafka",
           "Kubernetes",
           "GCP",
-          "Elasticsearch",
-          "",
+          "Redis",
+          "PostgreSQL",
+          "MongoDB",
         ],
       },
     ],
   },
   {
-    company: "Africa Blockchain Center",
+    company: "Africa Blockchain Centre",
     positions: [
       {
-
-        title: "Cardano Blockchain Engineer",
-        year: "12.2021 - 04.2024",
+        title: "Senior Backend & Blockchain Engineer",
+        year: "01.2022 - 05.2024",
         description: `
-- ♦ Designed blockchain integration APIs for the AfyaRekod platform, enabling patient-owned medical data to be shared
-in a positive way on the Cardano blockchain. Implemented using **Cardano**, **Mesh JS**
-- ♦ Led development of TraceLedger, a blockchain-based track-and-trace solution for coffee bean supply
-chain transparency..
-- ♦ Guided a team of five developers in Agile sprints, introduced code reviews and CI / CD pipelines,
-improved delivery schedules by 30%.
-            `,
+- Developed HIPAA-compliant smart contracts on Cardano for secure medical data sharing on the AfyaRekod platform.
+- Led the technical delivery of TraceLedger, a blockchain-based supply chain solution for coffee bean transparency.
+- Built robust REST APIs bridging Cardano (Plutus) smart contracts with traditional off-chain business applications.
+- Guided an agile team of five developers, reducing delivery timelines by 30% through improved code review processes.
+        `,
         skills: [
           "Node.js",
-          "Postgres",
-          "Express",
-          "Docker",
           "Cardano",
-          "Solidity"
+          "Aiken",
+          "MeshJS",
+          "Solidity",
+          "PostgreSQL",
+          "Docker",
         ],
       },
     ],
   },
-
   {
     company: "BandaHealth",
     positions: [
       {
-        title: "FullStack Developer",
+        title: "Software Developer",
         year: "08.2017 - 12.2021",
         description: `
-- ♦ Developed BandaGo, a mobile medical application for low-resource facilities, with middleware for effi-
-cient data caching and optimization of API performance (30% improvement).
-- ♦ Led UI redesign, enhancing user adoption, and built custom iDempiere ERP plugins for business logic
-customization.
-- ♦ .
-            `,
+- Scaled the BandaGo mobile health application middleware, reaching a 50% reduction in response times after migrating from Java to Go.
+- Optimized API performance by 30% through advanced data caching strategies for low-resource environments.
+- Designed and maintained secure REST APIs for sensitive patient data management, ensuring strict healthcare privacy standards.
+        `,
         skills: [
-          "React",
-          "Express.js",
-          "Postgresql",
+          "Go",
           "Java",
+          "React",
           "Spring Boot",
-          "Tailwind CSS",
-          "Bootstrap"
+          "PostgreSQL",
+          "ERP Systems",
         ],
       },
     ],
   },
-
-  //   {
-  //     company: "Education",
-  //     positions: [
-  //       {
-  //         title: "Bsc. In Information Technology | KCA University",
-  //         year: "2017",
-  //         description: `
-  // - ♦ Built a strong foundation in **software engineering**, focusing on **web development** and **UI/UX principles**.
-  // - ♦ Gained hands-on experience with **C/C++ and Linux**, enhancing problem-solving and system-level programming skills.
-  // - ♦ Developed expertise in **relational databases** and **networking**, applying concepts to real-world applications.
-  // - ♦ Strengthened **communication and teamwork skills** through group projects, presentations, and technical discussions.
-  //             `,
-  //         skills: [
-  //           "C/C++",
-  //           "Linux",
-  //           "UI/UX Foundation",
-  //           "Marketing",
-  //           "WordPress",
-  //           "Networking",
-  //           "Algorithms",
-  //           "Relational Databases",
-  //           "Software Engineering",
-  //           "Self-learning",
-  //           "Teamwork",
-  //           "Presentation",
-  //         ],
-  //       },
-  //     ],
-  //   },
+  {
+    company: "JKUAT University",
+    positions: [
+      {
+        title: "IT Support Specialist",
+        year: "01.2011 - 07.2017",
+        description: `
+- Spearheaded the transition from manual to digital workflows by developing a web-based research management system.
+- Significantly increased research submission rates by providing a user-friendly digital proposal submission platform.
+        `,
+        skills: [
+          "Web Development",
+          "Database Management",
+          "IT Support",
+          "System Administration",
+        ],
+      },
+    ],
+  },
 ];
-

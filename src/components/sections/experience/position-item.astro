@@ -2,8 +2,7 @@
 import { Code2, ChevronDown, ChevronUp } from "lucide-react";
 import type { ExperiencePosition } from "@/lib/types";
 import Badge from "@/components/ui/badge.astro";
-import { markdownToHtml } from "@/lib/markdown";
-import { buttonVariants } from "@/lib/utils";
+import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
 
 interface Props {
   position: ExperiencePosition;
@@ -12,16 +11,16 @@ interface Props {
 const { position } = Astro.props;
 ---
 
-<div>
+<div class="group/position">
   <div class="block w-full text-left">
-    <div class="relative z-1 mb-1 flex items-center space-x-3">
-      <Code2 className="size-4 bg-background" />
-      <h3 class="text-base font-black underline-offset-4">
+    <div class="relative z-1 mb-1 flex items-center space-x-4">
+      <div class="size-2 rounded-full border border-border bg-background transition-colors duration-300 group-hover/position:border-primary/50"></div>
+      <h4 class="text-base font-bold tracking-tight text-foreground/90 transition-colors duration-300 group-hover/position:text-foreground">
         {position.title}
-      </h3>
+      </h4>
     </div>
     <span
-      class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground"
+      class="flex items-center gap-2 pl-[24px] font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60"
     >
       {position.year}
     </span>
@@ -31,19 +30,18 @@ const { position } = Astro.props;
     <div
       class="description-content max-h-0 overflow-hidden transition-all duration-300"
     >
-      <div
-        class=""
-        set:html={markdownToHtml(
-          position.description,
-          "ml-7 text-sm leading-7"
-        )}
-      />
+      <div class="pl-[24px] pb-2">
+        <MarkdownRenderer
+          className="prose-sm leading-relaxed text-foreground/75 marker:text-foreground/30"
+          content={position.description}
+        />
+      </div>
 
       {
         Array.isArray(position.skills) && position.skills.length > 0 && (
-          <div class="mt-2 ml-7 flex max-w-full flex-wrap items-center justify-start gap-1.5 py-2">
+          <div class="mt-4 ml-[24px] flex max-w-full flex-wrap items-center justify-start gap-1.5 py-2">
             {position.skills.map(skill => {
-              return <Badge>{skill}</Badge>;
+              return <Badge className="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-muted/30 border-border/50 font-semibold opacity-70 hover:opacity-100 transition-opacity">{skill}</Badge>;
             })}
           </div>
         )
@@ -51,11 +49,11 @@ const { position } = Astro.props;
     </div>
 
     <button
-      class="toggle-btn mt-2 ml-7 flex cursor-pointer items-center gap-1 rounded-md border px-4 py-2 text-xs font-medium text-primary hover:underline focus:outline-none"
+      class="toggle-btn mt-3 ml-[24px] flex cursor-pointer items-center gap-2 rounded-md border border-border/40 bg-muted/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground transition-all hover:bg-muted/30 hover:text-foreground hover:border-border/80 focus:outline-none"
     >
-      <span class="toggle-text">Show more</span>
-      <ChevronDown className="toggle-icon-down size-4" />
-      <ChevronUp className="toggle-icon-up hidden size-4" />
+      <span class="toggle-text">DETAILS</span>
+      <ChevronDown className="toggle-icon-down size-3 opacity-60" />
+      <ChevronUp className="toggle-icon-up hidden size-3 opacity-60" />
     </button>
   </div>
 </div>
@@ -89,7 +87,7 @@ const { position } = Astro.props;
 
       if (index === 0) {
         if (content) content.classList.add("expanded");
-        if (toggleText) toggleText.textContent = "Show less";
+        if (toggleText) toggleText.textContent = "LESS";
         if (iconDown) iconDown.classList.add("hidden");
         if (iconUp) iconUp.classList.remove("hidden");
 
@@ -101,12 +99,12 @@ const { position } = Astro.props;
           content.classList.toggle("expanded");
 
           if (content.classList.contains("expanded")) {
-            if (toggleText) toggleText.textContent = "Show less";
+            if (toggleText) toggleText.textContent = "LESS";
             if (iconDown) iconDown.classList.add("hidden");
             if (iconUp) iconUp.classList.remove("hidden");
             iconUp?.classList.add("visible");
           } else {
-            if (toggleText) toggleText.textContent = "Show more";
+            if (toggleText) toggleText.textContent = "DETAILS";
             if (iconDown) iconDown.classList.remove("hidden");
             if (iconUp) iconUp.classList.add("hidden");
             iconUp?.classList.remove("visible");

@@ -9,12 +9,14 @@ import BoxContent from "@/components/box/content.astro";
 ---
 
 <Box>
-  <BoxHeader>
-    <BoxTitle> About </BoxTitle>
+  <BoxHeader class="pb-2 px-0">
+    <BoxTitle className="px-8 text-xl tracking-tight opacity-70">
+      About
+    </BoxTitle>
   </BoxHeader>
-  <BoxContent>
+  <BoxContent className="px-8 pb-12 pt-4 border-t border-dashed">
     <MarkdownRenderer
-      className="text-sm leading-7 font-medium"
+      className="prose-lg prose-neutral dark:prose-invert leading-relaxed text-foreground/80"
       content={PROFILE_INFO.about}
     />
   </BoxContent>

@@ -9,4 +9,4 @@ interface Props {
 const { className, content } = Astro.props;
 ---
 
-<div set:html={markdownToHtml(content, className)} />
+<div class:list={["prose prose-neutral dark:prose-invert max-w-none", className]} set:html={markdownToHtml(content)} />

@@ -114,6 +114,7 @@
 html {
   @apply scroll-smooth antialiased;
   font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  font-size: 110%;
 }
 
 body {
