@@ -1,5 +1,5 @@
 ---
-import { Shield, Zap, Layers, Cpu } from "lucide-react";
+import { Shield, Zap, Layers, Cpu, ArrowUpRight } from "lucide-react";
 import Box from "@/components/box/index.astro";
 import BoxHeader from "@/components/box/header.astro";
 import BoxTitle from "@/components/box/title.astro";
@@ -9,47 +9,99 @@ const SERVICES = [
   {
     title: "Blockchain Infrastructure",
     description: "Designing secure, multichain wallet architectures and specialized Web3 primitives for high-assurance applications.",
+    keywords: ["Wallet Core", "Bridge Security", "Node Ops"],
     icon: Shield,
+    color: "group-hover:text-blue-500",
+    bg: "group-hover:bg-blue-500/5",
+    border: "group-hover:border-blue-500/20"
   },
   {
     title: "Scale & Performance",
     description: "Refactoring and optimizing legacy backend systems for 10x throughput and sub-millisecond latency.",
+    keywords: ["Distributed Systems", "Rust/Go", "Latency Audit"],
     icon: Zap,
+    color: "group-hover:text-amber-500",
+    bg: "group-hover:bg-amber-500/5",
+    border: "group-hover:border-amber-500/20"
   },
   {
     title: "Financial Systems",
     description: "Integrating global payment rails, stablecoins, and mobile money ecosystems for seamless cross-border value transfer.",
+    keywords: ["Settlement Rails", "ISO 20022", "DeFi Bridges"],
     icon: Layers,
+    color: "group-hover:text-teal-500",
+    bg: "group-hover:bg-teal-500/5",
+    border: "group-hover:border-teal-500/20"
   },
   {
     title: "Smart Contract Auditing",
     description: "Deep technical review and formal verification support for Plutus, Aiken, and Solidity codebases.",
+    keywords: ["Formal Methods", "Vulnerability Research", "Cardano"],
     icon: Cpu,
+    color: "group-hover:text-purple-500",
+    bg: "group-hover:bg-purple-500/5",
+    border: "group-hover:border-purple-500/20"
   }
 ];
 ---
 
 <Box>
-  <BoxHeader class="pb-2 px-0">
-    <BoxTitle className="px-8 text-xl tracking-tight opacity-70">
-      Specialized Solutions
-    </BoxTitle>
+  <BoxHeader class="pb-10 px-0">
+    <div class="px-8 space-y-2">
+      <BoxTitle className="text-3xl font-black tracking-tighter">
+        Specialized Solutions
+      </BoxTitle>
+      <p class="text-muted-foreground/60 text-sm max-w-lg">
+        Architecting high-assurance systems for the next generation of financial and decentralized infrastructure.
+      </p>
+    </div>
   </BoxHeader>
-  <BoxContent className="px-8 pb-12 pt-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <BoxContent className="px-8 pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
       {SERVICES.map((service) => (
-        <div class="group flex flex-col gap-3 transition-all duration-300">
-          <div class="flex items-center gap-3">
-            <div class="flex size-10 items-center justify-center rounded-lg border border-border/50 bg-muted/20 group-hover:bg-primary/5 group-hover:border-primary/20 transition-colors duration-500">
-              <service.icon className="size-5 text-muted-foreground group-hover:text-primary transition-colors duration-500" />
+        <div class="group relative flex flex-col gap-6">
+          <div class="flex items-start gap-5">
+            <div class:list={[
+              "flex size-14 shrink-0 items-center justify-center rounded-2xl border border-border/50 bg-muted/20 transition-all duration-500 shadow-sm",
+              service.bg,
+              service.border
+            ]}>
+              <service.icon className:list={[
+                "size-7 text-muted-foreground/60 transition-all duration-500",
+                service.color
+              ]} />
             </div>
-            <h4 class="text-base font-bold tracking-tight text-foreground/90 group-hover:text-foreground transition-colors">
-              {service.title}
-            </h4>
+            
+            <div class="space-y-4">
+              <div>
+                <h4 class="text-xl font-bold tracking-tight text-foreground/90 group-hover:text-foreground transition-colors mb-2">
+                  {service.title}
+                </h4>
+                <p class="text-sm leading-relaxed text-muted-foreground/70 group-hover:text-muted-foreground/90 transition-colors">
+                  {service.description}
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                {service.keywords.map(keyword => (
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/40 group-hover:text-primary/50 transition-colors">
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+
+              <a 
+                href="/contact" 
+                class="inline-flex items-center gap-2 pt-2 text-xs font-bold uppercase tracking-[0.15em] text-primary/60 hover:text-primary transition-all duration-300 group/link"
+              >
+                Inquire Proposal
+                <ArrowUpRight className="size-3 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+              </a>
+            </div>
           </div>
-          <p class="text-sm leading-relaxed text-muted-foreground/80 group-hover:text-muted-foreground transition-colors">
-            {service.description}
-          </p>
+          
+          <!-- Subtle hover decorative line -->
+          <div class="absolute -left-6 top-0 bottom-0 w-[2px] bg-primary/20 scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div>
         </div>
       ))}
     </div>
