@@ -1,0 +1,57 @@
+---
+import { Shield, Zap, Layers, Cpu } from "lucide-react";
+import Box from "@/components/box/index.astro";
+import BoxHeader from "@/components/box/header.astro";
+import BoxTitle from "@/components/box/title.astro";
+import BoxContent from "@/components/box/content.astro";
+
+const SERVICES = [
+  {
+    title: "Blockchain Infrastructure",
+    description: "Designing secure, multichain wallet architectures and specialized Web3 primitives for high-assurance applications.",
+    icon: Shield,
+  },
+  {
+    title: "Scale & Performance",
+    description: "Refactoring and optimizing legacy backend systems for 10x throughput and sub-millisecond latency.",
+    icon: Zap,
+  },
+  {
+    title: "Financial Systems",
+    description: "Integrating global payment rails, stablecoins, and mobile money ecosystems for seamless cross-border value transfer.",
+    icon: Layers,
+  },
+  {
+    title: "Smart Contract Auditing",
+    description: "Deep technical review and formal verification support for Plutus, Aiken, and Solidity codebases.",
+    icon: Cpu,
+  }
+];
+---
+
+<Box>
+  <BoxHeader class="pb-2 px-0">
+    <BoxTitle className="px-8 text-xl tracking-tight opacity-70">
+      Specialized Solutions
+    </BoxTitle>
+  </BoxHeader>
+  <BoxContent className="px-8 pb-12 pt-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {SERVICES.map((service) => (
+        <div class="group flex flex-col gap-3 transition-all duration-300">
+          <div class="flex items-center gap-3">
+            <div class="flex size-10 items-center justify-center rounded-lg border border-border/50 bg-muted/20 group-hover:bg-primary/5 group-hover:border-primary/20 transition-colors duration-500">
+              <service.icon className="size-5 text-muted-foreground group-hover:text-primary transition-colors duration-500" />
+            </div>
+            <h4 class="text-base font-bold tracking-tight text-foreground/90 group-hover:text-foreground transition-colors">
+              {service.title}
+            </h4>
+          </div>
+          <p class="text-sm leading-relaxed text-muted-foreground/80 group-hover:text-muted-foreground transition-colors">
+            {service.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </BoxContent>
+</Box>

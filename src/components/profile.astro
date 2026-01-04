@@ -57,7 +57,7 @@ import LinkedinIcon from "@/components/ui/icons/linkedin.astro";
  */
 }
 
-<Box>
+<Box id="contact">
   <BoxContent className="space-y-3">
     <span class="flex items-center justify-start gap-2">
       <Briefcase className="size-4" />
@@ -94,25 +94,6 @@ import LinkedinIcon from "@/components/ui/icons/linkedin.astro";
         LinkedIn
       </a>
     </span>
-
-    <link
-      href="https://assets.calendly.com/assets/external/widget.css"
-      rel="stylesheet"
-    />
-    <script
-      src="https://assets.calendly.com/assets/external/widget.js"
-      type="text/javascript"
-      async></script>
-    <script type="text/javascript">
-      window.onload = function () {
-        Calendly.initBadgeWidget({
-          url: "https://calendly.com/muhindi-kn/braintrust-session?hide_event_type_details=1&hide_gdpr_banner=1",
-          text: "Schedule a call with me",
-          color: "#545b64",
-          textColor: "#ffffff",
-        });
-      };
-    </script>
 
     <span class="flex items-center justify-start gap-2">
       <GithubIcon className="size-4" />

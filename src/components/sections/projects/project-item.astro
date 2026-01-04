@@ -1,49 +1,125 @@
 ---
-import { ChevronRightIcon, FolderCodeIcon } from "lucide-react";
-
+import { 
+  ChevronRightIcon, 
+  GithubIcon, 
+  ExternalLinkIcon, 
+  Wallet, 
+  Search, 
+  Users, 
+  Network,
+  Cpu,
+  Link as LinkIcon
+} from "lucide-react";
 import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
 import type { CollectionEntry } from "astro:content";
 import Badge from "@/components/ui/badge.astro";
 
 interface Props {
   project: CollectionEntry<"projects">;
+  featured?: boolean;
 }
 
-const { project } = Astro.props;
+const { project, featured = false } = Astro.props;
+
+// Map projects to suitable icons
+const iconMap: Record<string, any> = {
+  "sycamore": Network,
+  "trace-ledger": LinkIcon,
+  "umoja-circle": Users,
+  "zao-wallet": Wallet,
+};
+
+const ProjectIcon = iconMap[project.id] || Cpu;
 ---
 
-<a
-  href={`/projects/${project.id}`}
-  class="flex cursor-pointer items-center not-last:border-b transition-all duration-300 hover:bg-muted/30"
->
-  <FolderCodeIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
+<div class="group relative flex h-full flex-col transition-all duration-500 hover:bg-muted/5">
+  <!-- Stretched Link to Case Study -->
+  <a 
+    href={`/projects/${project.id}`} 
+    class="absolute inset-0 z-0" 
+    aria-label={`View Case Study: ${project.data.name}`}
+  ></a>
 
-  <div class="group flex w-full cursor-pointer flex-col gap-y-3 border-l p-4">
-    <div class="flex w-full items-center justify-between text-left select-none">
-      <h3
-        class="text-lg font-semibold underline-offset-6 group-hover:underline"
-      >
-        {project.data.name}
-      </h3>
-
-      <ChevronRightIcon
-        className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1"
-      />
+  <div class:list={[
+    "relative z-1 pointer-events-none flex flex-col gap-6 p-8 h-full", 
+    featured ? "md:flex-row md:items-start" : ""
+  ]}>
+    
+    <!-- Icon Area -->
+    <div class:list={[
+      "flex shrink-0 items-center justify-center rounded-2xl border border-border/50 bg-muted/20 transition-all duration-500 group-hover:border-primary/20 group-hover:bg-primary/5",
+      featured ? "size-20 md:size-24" : "size-12"
+    ]}>
+      <ProjectIcon className:list={[
+        "text-muted-foreground/60 transition-colors duration-500 group-hover:text-primary/70",
+        featured ? "size-10" : "size-6"
+      ]} />
     </div>
 
-    <MarkdownRenderer
-      className="text-xs leading-5 font-medium md:text-sm"
-      content={project.data.description}
-    />
-
-    {
-      project.data.technologies.length > 0 && (
-        <div class="flex flex-wrap gap-1.5">
-          {project.data.technologies.map(technology => {
-            return <Badge>{technology}</Badge>;
-          })}
+    <!-- Content Area -->
+    <div class="flex flex-1 flex-col">
+      <div class="flex items-start justify-between">
+        <div class="max-w-[80%]">
+          <h3 class:list={[
+            "font-black tracking-tight text-foreground/90 transition-colors group-hover:text-foreground",
+            featured ? "text-xl" : "text-base"
+          ]}>
+            {project.data.name}
+          </h3>
+          <div class="mt-2 flex flex-wrap gap-1.5">
+            {project.data.technologies.slice(0, 4).map(tech => (
+              <Badge className="text-[9px] uppercase tracking-wider px-2 py-0.5 opacity-60 group-hover:opacity-100 transition-opacity">
+                {tech}
+              </Badge>
+            ))}
+            {project.data.technologies.length > 4 && (
+              <span class="text-[9px] font-bold text-muted-foreground/50">+{project.data.technologies.length - 4}</span>
+            )}
+          </div>
         </div>
-      )
-    }
+
+        <div class="flex pointer-events-auto relative z-10 gap-1.5">
+          {project.data.sourceCode && (
+            <a 
+              href={project.data.sourceCode} 
+              target="_blank" 
+              class="rounded-full border border-border/40 p-1.5 text-muted-foreground/70 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+              title="View Source"
+            >
+              <GithubIcon className="size-3.5" />
+            </a>
+          )}
+          {project.data.preview && (
+            <a 
+              href={project.data.preview} 
+              target="_blank" 
+              class="rounded-full border border-border/40 p-1.5 text-muted-foreground/70 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+              title="Live Preview"
+            >
+              <ExternalLinkIcon className="size-3.5" />
+            </a>
+          )}
+        </div>
+      </div>
+
+      <div class="mt-4 flex-1">
+        <MarkdownRenderer
+          className:list={[
+            "leading-relaxed text-muted-foreground/80 group-hover:text-muted-foreground transition-colors",
+            featured ? "text-sm" : "text-xs"
+          ]}
+          content={project.data.description}
+        />
+      </div>
+
+      <div class="mt-6 flex items-center">
+        <span
+          class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 group-hover:text-primary transition-colors"
+        >
+          {featured ? "View Case Study" : "Details"}
+          <ChevronRightIcon className="size-3 transition-transform group-hover:translate-x-1" />
+        </span>
+      </div>
+    </div>
   </div>
-</a>
+</div>

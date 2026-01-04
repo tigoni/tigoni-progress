@@ -1,0 +1,60 @@
+---
+import { PROFILE_INFO } from "@/lib/constants/profile";
+import { ArrowRight } from "lucide-react";
+---
+
+<section class="relative flex flex-col items-center justify-center overflow-hidden px-8 py-20 text-center md:border-x">
+  <div class="relative z-10 max-w-2xl">
+    <div class="mb-4 inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary/70">
+      Available for new projects
+    </div>
+    
+    <h1 class="mb-6 text-4xl font-black leading-[1.1] tracking-tight sm:text-5xl md:text-6xl text-foreground">
+      I build <span class="text-primary/90">secure, high-throughput</span> systems that scale with your business.
+    </h1>
+    
+    <p class="mb-10 text-lg leading-relaxed text-muted-foreground/80 md:text-xl">
+      Senior Software Engineer specializing in Backend Systems, Blockchain Infrastructure, and specialized Web3 primitives.
+    </p>
+
+    <div class="mb-12 flex flex-wrap justify-center gap-x-8 gap-y-4 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/50">
+      <span class="flex items-center gap-2">
+        <span class="size-1 rounded-full bg-primary/40"></span>
+        Fintech Rails
+      </span>
+      <span class="flex items-center gap-2">
+        <span class="size-1 rounded-full bg-primary/40"></span>
+        EVM & Cardano
+      </span>
+      <span class="flex items-center gap-2">
+        <span class="size-1 rounded-full bg-primary/40"></span>
+        Sub-ms Latency
+      </span>
+      <span class="flex items-center gap-2">
+        <span class="size-1 rounded-full bg-primary/40"></span>
+        Cloud Native
+      </span>
+    </div>
+    
+    <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a
+        href="/contact"
+        class="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold text-primary-foreground transition-all hover:scale-[1.02] hover:bg-primary/90 active:scale-[0.98]"
+      >
+        Work with me
+        <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+      </a>
+      
+      <a
+        href="/projects"
+        class="inline-flex items-center gap-2 rounded-full border border-border bg-background px-8 py-4 text-sm font-bold text-foreground transition-all hover:bg-muted/50 active:scale-[0.98]"
+      >
+        View Projects
+      </a>
+    </div>
+  </div>
+
+  <!-- Subtle background decoration -->
+  <div class="absolute -top-24 -left-24 size-96 rounded-full bg-primary/5 blur-3xl"></div>
+  <div class="absolute -bottom-24 -right-24 size-96 rounded-full bg-primary/5 blur-3xl"></div>
+</section>

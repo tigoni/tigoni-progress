@@ -1,0 +1,68 @@
+---
+import { Calendar, Clock, Video, ArrowUpRight } from "lucide-react";
+import Box from "@/components/box/index.astro";
+import BoxContent from "@/components/box/content.astro";
+---
+
+<Box className="bg-primary/5 border-primary/10">
+  <BoxContent className="px-8 py-12">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="flex-1 space-y-4">
+        <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary">
+          <Video className="size-3" />
+          Discovery Call
+        </div>
+        <h3 class="text-3xl font-black tracking-tighter">Schedule a Consultation</h3>
+        <p class="text-muted-foreground/80 max-w-md">
+          Book a 30-minute deep dive to discuss your architecture, scaling needs, or blockchain integration strategy.
+        </p>
+        
+        <div class="flex flex-wrap gap-4 pt-2">
+          <div class="flex items-center gap-2 text-xs font-medium text-muted-foreground/70">
+            <Clock className="size-3.5" />
+            30 Minutes
+          </div>
+          <div class="flex items-center gap-2 text-xs font-medium text-muted-foreground/70">
+            <Calendar className="size-3.5" />
+            Flexible Booking
+          </div>
+        </div>
+      </div>
+
+      <div class="shrink-0">
+        <button 
+          id="calendly-trigger"
+          class="group flex items-center gap-3 rounded-2xl bg-primary px-8 py-6 text-sm font-bold text-primary-foreground transition-all hover:scale-105 hover:shadow-xl hover:shadow-primary/20 active:scale-[0.98]"
+        >
+          Book Discovery Call
+          <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </button>
+      </div>
+    </div>
+  </BoxContent>
+
+  <!-- Calendly Integration -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <script is:inline>
+    document.addEventListener("astro:page-load", () => {
+      const trigger = document.getElementById('calendly-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          Calendly.initPopupWidget({
+            url: 'https://calendly.com/muhindi-kn/braintrust-session?hide_event_type_details=1&hide_gdpr_banner=1'
+          });
+          return false;
+        });
+      }
+    });
+  </script>
+</Box>
+
+<style>
+  /* Ensure the button feels interactive */
+  button#calendly-trigger {
+    cursor: pointer;
+  }
+</style>
