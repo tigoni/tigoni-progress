@@ -14,7 +14,7 @@ const { project } = Astro.props;
 
 <a
   href={`/projects/${project.id}`}
-  class="flex cursor-pointer items-center not-last:border-b"
+  class="flex cursor-pointer items-center not-last:border-b transition-all duration-300 hover:bg-muted/30"
 >
   <FolderCodeIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
 

@@ -34,28 +34,19 @@
   --color-chart-4: hsl(var(--chart-4));
   --color-chart-5: hsl(var(--chart-5));
 
-  --animate-accordion-down: accordion-down 0.3s ease-out;
-  --animate-accordion-up: accordion-up 0.3s ease-out;
-
-  @keyframes accordion-down {
+  @keyframes fade-in {
     from {
-      height: 0;
+      opacity: 0;
+      transform: translateY(10px);
     }
 
     to {
-      height: var(--radix-accordion-content-height);
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  @keyframes accordion-up {
-    from {
-      height: var(--radix-accordion-content-height);
-    }
-
-    to {
-      height: 0;
-    }
-  }
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
 }
 
 :root {
@@ -121,25 +112,36 @@
 }
 
 html {
-  @apply scroll-smooth;
-  font-family: Geist Sans;
+  @apply scroll-smooth antialiased;
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
 }
 
 body {
   @apply overscroll-none bg-background text-foreground;
   font-synthesis-weight: none;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
 h2,
-h3 {
-  font-family: Roboto Condensed;
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold tracking-tight;
+  font-family: 'Outfit', sans-serif;
 }
 
-pre {
+pre,
+code {
   font-family: JetBrains Mono;
   border: 0;
+}
+
+::selection {
+  @apply bg-primary/10 text-primary;
 }
 
 /* Custom scrollbar styling */
@@ -171,4 +173,3 @@ pre {
 .copy-code svg {
   @apply size-4;
 }
-

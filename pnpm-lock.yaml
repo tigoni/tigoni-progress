@@ -20,9 +20,15 @@ importers:
       '@fontsource/geist-sans':
         specifier: ^5.2.5
         version: 5.2.5
+      '@fontsource/inter':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@fontsource/jetbrains-mono':
         specifier: ^5.2.6
         version: 5.2.6
+      '@fontsource/outfit':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@fontsource/roboto-condensed':
         specifier: ^5.2.6
         version: 5.2.6
@@ -467,8 +473,14 @@ packages:
   '@fontsource/geist-sans@5.2.5':
     resolution: {integrity: sha512-anllOHyJbElRs9fV15TeDRqAeb1IKm4bSknPl6ZMoyPTx1BBy7logudcUwpNjmQLkzn4Q0JGQLRCUKJYoyST6A==}
 
+  '@fontsource/inter@5.2.8':
+    resolution: {integrity: sha512-P6r5WnJoKiNVV+zvW2xM13gNdFhAEpQ9dQJHt3naLvfg+LkF2ldgSLiF4T41lf1SQCM9QmkqPTn4TH568IRagg==}
+
   '@fontsource/jetbrains-mono@5.2.6':
     resolution: {integrity: sha512-nz//dBr99hXZmHp10wgNI00qThWImkzRR5PQjvRM+rpmuHO5rYBJCqPPWufidCvmkkryXx/GOP/lgqsM3R3Org==}
+
+  '@fontsource/outfit@5.2.8':
+    resolution: {integrity: sha512-rXC6g0MqD7cOBjht0bMqc43qM6lRqDLML9KXsmg9uykz0wLQhy8Z/ajrMG6iyoT3NJR+MYgU+OEHp7uHoTb+Yw==}
 
   '@fontsource/roboto-condensed@5.2.6':
     resolution: {integrity: sha512-xcvHM/urk/hdZknJNBpUzFdAA00QgKq+FdAfjO8soi9xeTlAPNz2wD2k+K7omsCfedGcOlQ6VnWJIRkF0egUjg==}
@@ -3576,7 +3588,11 @@ snapshots:
 
   '@fontsource/geist-sans@5.2.5': {}
 
+  '@fontsource/inter@5.2.8': {}
+
   '@fontsource/jetbrains-mono@5.2.6': {}
+
+  '@fontsource/outfit@5.2.8': {}
 
   '@fontsource/roboto-condensed@5.2.6': {}
 

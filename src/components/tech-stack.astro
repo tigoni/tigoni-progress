@@ -12,7 +12,7 @@ import { TECH_STACK } from "@/lib/constants/tech-stack";
   </BoxHeader>
   <BoxContent>
     <div
-      class="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-3"
+      class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-2"
       style="content-visibility: auto; contain-intrinsic-size: auto 48px;"
     >
       {
@@ -22,16 +22,18 @@ import { TECH_STACK } from "@/lib/constants/tech-stack";
             target="_blank"
             rel="noopener noreferrer"
             class:list={[
-              "flex h-10 min-w-[120px] items-center justify-center gap-2 rounded-md border border-solid bg-blue-50/10 p-2",
-              "transition-all duration-200 hover:bg-blue-50/20",
+              "flex h-11 items-center gap-3 rounded-lg border border-border/40 bg-muted/20 px-4",
+              "transition-all duration-300 hover:bg-muted/50 hover:border-border hover:shadow-sm",
             ]}
           >
             {item.icon && (
-              <span class="flex size-5 items-center justify-center">
+              <span class="flex size-5 items-center justify-center text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
                 <item.icon className="size-5" />
               </span>
             )}
-            <span class="truncate text-sm">{item.title}</span>
+            <span class="truncate text-sm font-medium tracking-tight">
+              {item.title}
+            </span>
           </a>
         ))
       }
