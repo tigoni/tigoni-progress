@@ -32,76 +32,68 @@ const { title, technologies, description, preview, sourceCode, image } =
 ---
 
 <Layout title={`${title}`} ogImage={image} description={description}>
-  <Navbar />
+  <Navbar className="top-1" />
 
-  <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
-    <Pattern className="h-14">
-      <div class="z-1 mx-2 mt-auto flex w-full items-center justify-between">
-        <LinkBtn ariaLabel="Back btn" href="/projects">
-          <ArrowLeft />
-        </LinkBtn>
-        <div>
-          {
-            sourceCode && (
-              <LinkBtn
-                ariaLabel="Source code"
+  <main aria-label="Main content" class="min-h-screen">
+    <div class="mx-auto max-w-3xl">
+      <Pattern className="h-14">
+        <div class="absolute inset-x-0 bottom-0 z-1 px-2 flex items-center justify-between">
+          <LinkBtn ariaLabel="Back btn" href="/projects">
+            <ArrowLeft className="size-4" />
+          </LinkBtn>
+          
+          <div class="flex gap-2 pb-1">
+            {sourceCode && (
+              <a 
+                href={sourceCode} 
                 target="_blank"
-                className="text-xs"
-                variant="default"
-                href={sourceCode}
+                class="inline-flex items-center gap-2 rounded-full border border-border/40 bg-background/50 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/80 transition-all hover:bg-primary hover:text-primary-foreground hover:border-primary"
               >
-                Source
-                <Github class="size-3" />
-              </LinkBtn>
-            )
-          }
-          {
-            preview && (
-              <LinkBtn
-                ariaLabel="Deployed App"
-                variant="default"
+                Source <Github className="size-3" />
+              </a>
+            )}
+            {preview && (
+              <a 
+                href={preview} 
                 target="_blank"
-                className="text-xs"
-                variant="default"
-                href={preview}
+                class="inline-flex items-center gap-2 rounded-full border border-border/40 bg-background/50 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/80 transition-all hover:bg-primary hover:text-primary-foreground hover:border-primary"
               >
-                Preview
-                <ExternalLink className="size-3" />
-              </LinkBtn>
-            )
-          }
+                Preview <ExternalLink className="size-3" />
+              </a>
+            )}
+          </div>
         </div>
-      </div>
-    </Pattern>
+      </Pattern>
 
-    <Box>
-      <BoxHeader>
-        <BoxTitle className="text-2xl !font-black md:text-3xl"
-          >{capitalizeFirstLetter(title)}</BoxTitle
-        >
-      </BoxHeader>
+      <Box>
+        <BoxHeader class="px-8 pt-10 pb-4">
+          <div class="flex flex-wrap gap-2 mb-6">
+            {technologies.map(tech => (
+              <span class="rounded-full border border-primary/10 bg-primary/5 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest text-primary/70">
+                {tech}
+              </span>
+            ))}
+          </div>
+          <BoxTitle className="text-4xl font-black leading-[1.1] tracking-tighter md:text-5xl">
+            {capitalizeFirstLetter(title)}
+          </BoxTitle>
+          <p class="mt-6 text-lg text-muted-foreground/80 leading-relaxed italic">
+            {description}
+          </p>
+        </BoxHeader>
 
-      <BoxContent className="space-y-4">
-        <div class="flex flex-wrap gap-1.5">
-          {
-            technologies.map(technology => {
-              return <Badge>{technology}</Badge>;
-            })
-          }
-        </div>
-      </BoxContent>
-    </Box>
+        <Pattern />
+      </Box>
 
-    <Pattern />
-
-    <Box className="min-w-full">
-      <BoxContent className="pt-8">
-        <article class="prose min-w-full">
-          <slot />
-        </article>
-      </BoxContent>
-    </Box>
+      <Box className="min-w-full">
+        <BoxContent className="px-8 pt-12 pb-24">
+          <article class="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-black prose-headings:tracking-tighter prose-h2:text-3xl prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-pre:rounded-2xl prose-pre:border prose-pre:border-border/50 prose-img:rounded-2xl prose-img:shadow-xl">
+            <slot />
+          </article>
+        </BoxContent>
+      </Box>
+    </div>
   </main>
-</Layout>
 
-<Footer />
+  <Footer />
+</Layout>

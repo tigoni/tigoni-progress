@@ -17,20 +17,36 @@ const sideProjects = projects.filter(project => project.data.type === "side").re
 <PageLayout
   description="A curated collection of my work, ranging from large-scale enterprise backend systems to specialized Web3 experiments."
   title="Projects | Tigoni IM"
+  showHero={false}
 >
   <Pattern className="h-14" />
   
+  <!-- Header Section -->
+  <div class="px-8 py-16 md:border-x">
+    <h1 class="text-5xl font-black tracking-tighter sm:text-6xl md:text-7xl">
+      Product <span class="text-primary/60">Log.</span>
+    </h1>
+    <p class="mt-6 max-w-xl text-lg text-muted-foreground/80 leading-relaxed">
+      A curated collection of my work, ranging from large-scale enterprise backend systems to specialized Web3 experiments and open-source contributions.
+    </p>
+  </div>
+
+  <Pattern />
+
+  <!-- Core Projects Section -->
   <Box>
     <BoxHeader className="px-8 pt-12 pb-2">
-      <BoxTitle className="text-2xl font-black tracking-tight">Core Projects</BoxTitle>
-      <p class="mt-2 text-sm text-muted-foreground/70 max-w-xl">
-        High-impact applications and production-ready systems I've architected for enterprise and blockchain ecosystems.
-      </p>
+      <div class="space-y-2">
+        <BoxTitle className="text-2xl font-black tracking-tight">Core Projects</BoxTitle>
+        <p class="text-sm text-muted-foreground/60 max-w-xl">
+          High-impact applications and production-ready systems I've architected for enterprise and blockchain ecosystems.
+        </p>
+      </div>
     </BoxHeader>
 
-    <div class="mt-6 flex flex-col">
+    <div class="mt-8 flex flex-col border-t border-dashed border-border">
       {coreProjects.map(item => (
-        <div class="not-last:border-b border-dashed border-border">
+        <div class="border-b border-dashed border-border last:border-b-0">
           <ProjectItem project={item} featured={true} />
         </div>
       ))}
@@ -42,13 +58,15 @@ const sideProjects = projects.filter(project => project.data.type === "side").re
       <>
         <Pattern />
         <Box>
-          <BoxHeader className="px-8 pt-12 pb-2">
-            <BoxTitle className="text-xl font-black tracking-tight">Side Hustles & Labs</BoxTitle>
-            <p class="mt-2 text-sm text-muted-foreground/70 max-w-xl">
-              Niche experiments, open-source libraries, and technical proofs-of-concept exploring the limits of Web3 and Backend performance.
-            </p>
+          <BoxHeader className="px-8 pt-12 pb-2 text-left">
+            <div class="space-y-2">
+              <BoxTitle className="text-xl font-black tracking-tight">Side Hustles & Labs</BoxTitle>
+              <p class="text-sm text-muted-foreground/60 max-w-xl">
+                Niche experiments, open-source libraries, and technical proofs-of-concept exploring the limits of Web3 and Backend performance.
+              </p>
+            </div>
           </BoxHeader>
-          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 border-t border-border border-dashed">
+          <div class="mt-10 grid grid-cols-1 md:grid-cols-2 border-t border-border border-dashed">
             {sideProjects.map(item => (
               <div class="border-b md:odd:border-r border-border border-dashed transition-all duration-300 hover:bg-muted/5 group">
                  <ProjectItem project={item} />
