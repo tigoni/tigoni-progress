@@ -18,9 +18,10 @@ interface Props {
   title: string;
   description: string;
   backLink?: string;
+  showHero?: boolean;
 }
 
-const { title, description, backLink } = Astro.props;
+const { title, description, backLink, showHero = true } = Astro.props;
 ---
 
 <Layout title={`${title}`}>
@@ -40,16 +41,18 @@ const { title, description, backLink } = Astro.props;
       }
     </Pattern>
 
-    <Box>
-      <BoxHeader>
-        <BoxTitle className="text-2xl !font-black"
-          >{capitalizeFirstLetter(title)}</BoxTitle
-        >
-      </BoxHeader>
-      <BoxContent>
-        {description}
-      </BoxContent>
-    </Box>
+    {
+      showHero && (
+        <Box>
+          <BoxHeader>
+            <BoxTitle className="text-2xl !font-black">
+              {capitalizeFirstLetter(title)}
+            </BoxTitle>
+          </BoxHeader>
+          <BoxContent>{description}</BoxContent>
+        </Box>
+      )
+    }
 
     <slot />
   </main>

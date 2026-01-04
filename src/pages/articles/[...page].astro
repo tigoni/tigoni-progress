@@ -37,58 +37,87 @@ const { page } = Astro.props;
 ---
 
 <PageLayout
-  description="Exploring frontend, backend, and full-stack developmen deep dives, series, and hands-on insights."
-  title="Software Engineering Notes"
+  description="Technical deep dives, architectural insights, and hands-on notes on building high-performance systems and decentralized infrastructure."
+  title="Articles | Tigoni IM"
+  showHero={false}
 >
-  <Pattern />
+  <Pattern className="h-14" />
 
-  <Box>
-    <BoxHeader>
-      <BoxTitle>Series</BoxTitle>
-    </BoxHeader>
-    <BoxContent>
-      <div class="flex flex-wrap items-center justify-start gap-x-4 gap-y-3">
-        {
-          series.map(seriesItem => (
-            <LinkTag href={`articles/series/${seriesItem}`} tag={seriesItem} />
-          ))
-        }
-      </div>
-    </BoxContent>
-  </Box>
+  <!-- Header Section -->
+  <div class="px-8 py-16 md:border-x">
+    <h1 class="text-5xl font-black tracking-tighter sm:text-6xl md:text-7xl">
+      Engineering <span class="text-primary/60">Log.</span>
+    </h1>
+    <p class="mt-6 max-w-xl text-lg text-muted-foreground/80 leading-relaxed">
+      A collection of technical articles and field notes covering Backend Systems, Cardano Infrastructure, and Distributed Computing.
+    </p>
+  </div>
 
   <Pattern />
 
-  <Box>
-    <BoxHeader>
-      <BoxTitle>Categories</BoxTitle>
-    </BoxHeader>
-    <BoxContent>
-      <div class="flex flex-wrap items-center justify-start gap-x-4 gap-y-3">
-        {
-          categories.map(category => (
-            <LinkTag href={`articles/categories/${category}`} tag={category} />
-          ))
-        }
-      </div>
-    </BoxContent>
-  </Box>
+  <!-- Navigation Grid (Series/Categories) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border-x md:border-y md:border-y-0 border-dashed">
+    <Box className="bg-background border-none">
+      <BoxHeader className="px-8 pt-8 pb-2">
+        <BoxTitle className="text-xs uppercase tracking-[0.2em] opacity-40">Series</BoxTitle>
+      </BoxHeader>
+      <BoxContent className="px-8 pb-8 pt-4">
+        <div class="flex flex-wrap gap-2">
+          {
+            series.map(seriesItem => (
+              <a 
+                href={`/articles/series/${seriesItem}`} 
+                class="rounded-full border border-border/60 bg-muted/20 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/70 transition-all hover:border-primary/30 hover:bg-primary/5 hover:text-primary"
+              >
+                {seriesItem}
+              </a>
+            ))
+          }
+        </div>
+      </BoxContent>
+    </Box>
+
+    <Box className="bg-background border-none md:border-l border-dashed">
+      <BoxHeader className="px-8 pt-8 pb-2">
+        <BoxTitle className="text-xs uppercase tracking-[0.2em] opacity-40">Categories</BoxTitle>
+      </BoxHeader>
+      <BoxContent className="px-8 pb-8 pt-4">
+        <div class="flex flex-wrap gap-2">
+          {
+            categories.map(category => (
+              <a 
+                href={`/articles/categories/${category}`} 
+                class="rounded-full border border-border/60 bg-muted/20 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/70 transition-all hover:border-primary/30 hover:bg-primary/5 hover:text-primary"
+              >
+                {category}
+              </a>
+            ))
+          }
+        </div>
+      </BoxContent>
+    </Box>
+  </div>
 
   <Pattern />
 
+  <!-- Articles List -->
   <Box>
-    <BoxHeader>
-      <BoxTitle>Articles</BoxTitle>
+    <BoxHeader className="px-8 pt-12 pb-2">
+      <BoxTitle className="text-2xl font-black tracking-tight">Recent Writing</BoxTitle>
     </BoxHeader>
-    <div
-      class="flex w-full flex-col items-start justify-start divide-y divide-border"
-    >
-      {page.data.map(article => <ArticleItem article={article} />)}
+    <div class="mt-6 flex flex-col border-t border-dashed border-border">
+      {page.data.map(article => (
+        <div class="border-b border-dashed border-border last:border-b-0">
+          <ArticleItem article={article} />
+        </div>
+      ))}
     </div>
 
-    <div class="border-t py-2">
-      <Pagination page={page} />
-    </div>
+    {page.total > page.size && (
+      <div class="border-t border-dashed border-border py-4 px-8">
+        <Pagination page={page} />
+      </div>
+    )}
   </Box>
 
   <Pattern />
