@@ -2,14 +2,9 @@
 import { 
   ChevronRightIcon, 
   GithubIcon, 
-  ExternalLinkIcon, 
-  Wallet, 
-  Search, 
-  Users, 
-  Network,
-  Cpu,
-  Link as LinkIcon
+  ExternalLinkIcon,
 } from "lucide-react";
+import FlatIcon from "@/components/ui/icons/flat-icons.astro";
 import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
 import type { CollectionEntry } from "astro:content";
 import Badge from "@/components/ui/badge.astro";
@@ -21,15 +16,16 @@ interface Props {
 
 const { project, featured = false } = Astro.props;
 
-// Map projects to suitable icons
-const iconMap: Record<string, any> = {
-  "sycamore": Network,
-  "trace-ledger": LinkIcon,
-  "umoja-circle": Users,
-  "zao-wallet": Wallet,
+// Map projects to suitable flat icons
+const iconMap: Record<string, "network" | "ledger" | "community" | "wallet" | "leaf" | "core"> = {
+  "sycamore": "network",
+  "trace-ledger": "ledger",
+  "umoja-circle": "community",
+  "zao-wallet": "wallet",
+  "kijani-mrv": "leaf",
 };
 
-const ProjectIcon = iconMap[project.id] || Cpu;
+const projectIconName = iconMap[project.id] || "core";
 ---
 
 <div class="group relative flex h-full flex-col transition-all duration-500 hover:bg-muted/5">
@@ -45,15 +41,17 @@ const ProjectIcon = iconMap[project.id] || Cpu;
     featured ? "md:flex-row md:items-start" : ""
   ]}>
     
-    <!-- Icon Area -->
     <div class:list={[
       "flex shrink-0 items-center justify-center rounded-2xl border border-border/50 bg-muted/20 transition-all duration-500 group-hover:border-primary/20 group-hover:bg-primary/5",
       featured ? "size-20 md:size-24" : "size-12"
     ]}>
-      <ProjectIcon className:list={[
-        "text-muted-foreground/60 transition-colors duration-500 group-hover:text-primary/70",
-        featured ? "size-10" : "size-6"
-      ]} />
+      <FlatIcon 
+        name={projectIconName}
+        class:list={[
+          "text-muted-foreground/60 transition-colors duration-500 group-hover:text-primary/70",
+          featured ? "size-10" : "size-6"
+        ]} 
+      />
     </div>
 
     <!-- Content Area -->
